@@ -1,2 +1,17 @@
 <h1> <%= @review.title %> </h1>
 <p> <%= @review.body %> </p>
+
+<%= form_for [@review.neighborhood, @review, @comment] do |f| %>
+<p>
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+</p>
+
+<%= f.submit %>
+<% end %>
+
+<ul>
+  <% @review.comments.each do |comment| %>
+    <li><%= comment.body %></li>
+  <% end %>
+</ul>

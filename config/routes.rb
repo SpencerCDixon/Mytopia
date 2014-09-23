@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   resources :neighborhoods, only: [:index, :new, :show, :create] do
-    resources :reviews 
+    resources :reviews do
+      resources :comments
+    end
   end
 end
