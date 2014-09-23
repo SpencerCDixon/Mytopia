@@ -2,5 +2,9 @@
 
 FactoryGirl.define do
   factory :neighborhood do
+    city "Newton"
+    state "MA"
+    zipcode "02151"
+
   end
 end
