@@ -1,11 +1,12 @@
 class NeighborhoodsController < ApplicationController
-
   def index
     @neighborhoods = Neighborhood.all
   end
 
   def show
     @neighborhood = Neighborhood.find(params[:id])
+    @review = Review.new
+    @reviews = @neighborhood.reviews
   end
 
   def new
