@@ -1,0 +1,9 @@
+
+<h1> Neighborhoods </h1>
+<ul>
+  <% @neighborhoods.each do |n| %>
+    <li> <%= n.name %> </li>
+  <% end %>
+</ul>
+
+<%= link_to 'New Neighborhood', new_neighborhood_path %>
