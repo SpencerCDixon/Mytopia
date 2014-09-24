@@ -2,9 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'welcome#index'
-  resources :neighborhoods, only: [:index, :new, :show, :create] do
-    resources :reviews, only: [:new, :create, :show] do
-      resources :comments, only: [:new, :create]
+  resources :neighborhoods, except: [:destroy, :update] do
+    resources :reviews, except: [:index] do
+      resources :comments, except: [:index, :show]
     end
+  end
+
+  namespace :admin do
+    resources :neighborhoods, only: [:index]
   end
 end
