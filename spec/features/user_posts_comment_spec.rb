@@ -6,7 +6,7 @@ feature "Authenticated user can comment on reviews" do
 
     sign_in_as(review.user)
 
-    visit neighborhood_review_path(review.neighborhood, review)
+    visit neighborhood_review_path( review.neighborhood, review )
 
     comment = FactoryGirl.build(:comment)
     fill_in('Body', with: comment.body)
@@ -20,7 +20,7 @@ feature "Authenticated user can comment on reviews" do
   scenario "comment form is not visible" do
     review = FactoryGirl.create(:review)
 
-    visit neighborhood_review_path(review.neighborhood, review)
+    visit neighborhood_review_path( review.neighborhood, review )
 
     expect(page).to_not have_button('Create Comment')
   end
@@ -28,7 +28,7 @@ feature "Authenticated user can comment on reviews" do
   scenario "notifies user to sign in if they want to comment" do
     review = FactoryGirl.create(:review)
 
-    visit neighborhood_review_path(review.neighborhood, review)
+    visit neighborhood_review_path( review.neighborhood, review )
 
     expect(page).to have_link('Sign in to comment')
 
@@ -37,7 +37,7 @@ feature "Authenticated user can comment on reviews" do
   scenario "user clicks on sign in link brings to sign in page" do
     review = FactoryGirl.create(:review)
 
-    visit neighborhood_review_path(review.neighborhood, review)
+    visit neighborhood_review_path( review.neighborhood, review )
 
     expect(page).to have_link('Sign in to comment')
 
