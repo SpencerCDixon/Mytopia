@@ -22,6 +22,7 @@
 <% end %>
 
 <% if @reviews %>
+<h1> All Reviews For <%= @neighborhood.name %> </h1>
   <% @reviews.each do |review| %>
     <p> <%= link_to review.title, neighborhood_review_path(@neighborhood, review) %> </p>
   <% end %>
