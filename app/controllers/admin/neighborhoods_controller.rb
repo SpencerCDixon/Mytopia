@@ -3,4 +3,8 @@ class Admin::NeighborhoodsController < ApplicationController
   def index
     @neighborhoods = Neighborhood.all
   end
+
+  def edit
+    @neighborhood = Neighborhood.find(params[:id])
+  end
 end
