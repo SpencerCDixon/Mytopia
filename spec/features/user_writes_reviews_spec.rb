@@ -34,6 +34,36 @@ feature "authenticated user can write reviews" do
     fill_in('Body', with: review.body)
 
     click_on 'Create Review'
+  end
+
+  scenario 'authenticated user cannot create a blank review' do
+    user = FactoryGirl.create(:user)
+    neighborhood = FactoryGirl.create(:neighborhood)
+
+    sign_in_as(user)
+    visit neighborhood_path(neighborhood)
+
+    click_on 'Create Review'
+
+    expect(page).to have_content('prohibited')
+  end
+
+  scenario 'unauthenticated user cannot see the review form' do
+    user = FactoryGirl.create(:user)
+    neighborhood = FactoryGirl.create(:neighborhood)
+
+    visit neighborhood_path(neighborhood)
+
+    expect(page).to have_no_content('Create Review')
+  end
+
+  scenario 'unauthenticated user see the link to sign up page' do
+    user = FactoryGirl.create(:user)
+    neighborhood = FactoryGirl.create(:neighborhood)
+
+    visit neighborhood_path(neighborhood)
+
+    expect(page).to have_content('If you want to leave a review, please sign in.')
 
   end
 end
