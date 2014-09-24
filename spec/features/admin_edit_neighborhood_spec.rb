@@ -24,6 +24,5 @@ feature "Admin can update a neighborhood" do
   end
 
   scenario "admin edits a neighborhood" do
-
   end
 end
