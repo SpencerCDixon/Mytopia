@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
 
   has_many :reviews
   has_many :comments
+
+  def admin?
+    admin == true
+  end
 end

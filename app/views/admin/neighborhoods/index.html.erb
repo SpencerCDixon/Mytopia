@@ -1,0 +1,7 @@
+<h1>Neighborhoods Admin</h1>
+
+<ul>
+  <% @neighborhoods.each do |n| %>
+    <li> <%= n.city %> <%= link_to "Edit", edit_admin_neighborhood_path(n) %> </li>
+  <% end %>
+</ul>
