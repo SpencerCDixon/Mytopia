@@ -1,9 +1,17 @@
-
-
 <h1><%= @neighborhood.name %></h1>
-<%= @neighborhood.city %>
-<%= @neighborhood.state %>
-<%= @neighborhood.zipcode %>
+<table>
+  <tr>
+    <th>City</th>
+    <th>State</th>
+    <th>Zipcode</th>
+  </tr>
+  <tr>
+    <td> <%= @neighborhood.city %> </td>
+    <td> <%= @neighborhood.state %> </td>
+    <td> <%= @neighborhood.zipcode %> </td>
+  </tr>
+</table>
+
 
 <h1>Review <%=@neighborhood.city%></h1>
 
@@ -36,12 +44,12 @@
 <% end %>
 
 <% if !current_user %>
-  If you want to leave a review, please sign in.
+  <%= link_to 'If you want to leave a review, please sign in.', new_user_session_path, class: "btn info" %>
 <% end %>
 
 <% if @reviews %>
 <h1> All Reviews For <%= @neighborhood.name %> </h1>
   <% @reviews.each do |review| %>
-    <p> <%= link_to review.title, neighborhood_review_path(@neighborhood, review) %> </p>
+    <p> <%= link_to review.title, neighborhood_review_path(@neighborhood, review), class: "btn info" %> </p>
   <% end %>
 <% end %>
