@@ -1,0 +1,11 @@
+<% if current_user %>
+  <%= form_for [@comment.review.neighborhood, @comment.review, @comment] do |f| %>
+
+    <p>
+      <%= f.label :body  %><br>
+      <%= f.text_field :body %>
+    </p>
+
+    <%= f.submit %>
+  <% end %>
+<% end %>

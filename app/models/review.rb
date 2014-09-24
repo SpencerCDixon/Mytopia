@@ -8,4 +8,8 @@ class Review < ActiveRecord::Base
   belongs_to :neighborhood
   belongs_to :user
   has_many :comments
+
+  def owner?(user)
+    self.user == user
+  end
 end

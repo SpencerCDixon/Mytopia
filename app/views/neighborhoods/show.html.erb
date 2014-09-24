@@ -33,7 +33,10 @@
 
     <%= f.submit %>
   <% end %>
+
 <% end %>
+
+
 
 <% if !current_user %>
   If you want to leave a review, please sign in.
@@ -42,6 +45,12 @@
 <% if @reviews %>
 <h1> All Reviews For <%= @neighborhood.name %> </h1>
   <% @reviews.each do |review| %>
-    <p> <%= link_to review.title, neighborhood_review_path(@neighborhood, review) %> </p>
+    <p> <%= link_to review.title, neighborhood_review_path(@neighborhood, review) %>
+
+    <% if current_user %>
+
+      <%= link_to 'Edit', edit_neighborhood_review_path(@neighborhood, review) %>
+      <%= link_to 'Delete', neighborhood_review_path(@neighborhood, review), method: :delete, data: {confirm: 'Are you sure you want to delete review?'} %></p>
+    <% end %>
   <% end %>
 <% end %>

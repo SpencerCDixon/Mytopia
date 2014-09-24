@@ -45,4 +45,16 @@ feature "Authenticated user can comment on reviews" do
 
     expect(page).to  have_content("Log in")
   end
+
+  scenario "authenticated user sees error message if comment form filled out incorrectly" do
+    user = FactoryGirl.create(:user)
+    review = FactoryGirl.create(:review)
+
+    sign_in_as(user)
+    visit neighborhood_review_path(review.neighborhood, review)
+
+    click_on 'Create Comment'
+
+    expect(page).to have_content('prohibited')
+  end
 end

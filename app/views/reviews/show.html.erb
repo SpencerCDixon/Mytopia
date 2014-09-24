@@ -3,6 +3,17 @@
 
 <% if current_user %>
   <%= form_for [@review.neighborhood, @review, @comment] do |f| %>
+    <% if @comment.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@comment.errors.count, "error") %> prohibited
+            this review from being saved:</h2>
+          <ul>
+            <% @comment.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end%>
   <p>
     <%= f.label :body %>
     <%= f.text_field :body %>
@@ -16,6 +27,15 @@
 
 <ul>
   <% @review.comments.each do |comment| %>
-    <li><%= comment.body %></li>
+    <li><%= comment.body %>
+
+
+  <% if current_user %>
+    <%= link_to 'Edit', edit_neighborhood_review_comment_path(comment.review.neighborhood, comment.review, comment) %>
+
+    <%= link_to 'Delete', neighborhood_review_comment_path(comment.review.neighborhood, comment.review, comment), method: :delete, data: {confirm: 'Are you sure you want to delete comment?'} %>
+    <% end %>
+   </li>
+
   <% end %>
 </ul>
