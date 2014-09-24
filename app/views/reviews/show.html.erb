@@ -1,13 +1,17 @@
 <h1> <%= @review.title %> </h1>
 <p> <%= @review.body %> </p>
 
-<%= form_for [@review.neighborhood, @review, @comment] do |f| %>
-<p>
-  <%= f.label :body %>
-  <%= f.text_field :body %>
-</p>
+<% if current_user %>
+  <%= form_for [@review.neighborhood, @review, @comment] do |f| %>
+  <p>
+    <%= f.label :body %>
+    <%= f.text_field :body %>
+  </p>
 
-<%= f.submit %>
+  <%= f.submit %>
+  <% end %>
+<% else %>
+  <%= link_to "Sign in to comment", new_user_session_path %>
 <% end %>
 
 <ul>
