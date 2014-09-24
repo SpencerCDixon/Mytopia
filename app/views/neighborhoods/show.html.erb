@@ -1,9 +1,21 @@
-
-
 <h1><%= @neighborhood.name %></h1>
-<%= @neighborhood.city %>
-<%= @neighborhood.state %>
-<%= @neighborhood.zipcode %>
+<!-- <table>
+  <tr>
+    <th>City</th>
+    <th>State</th>
+    <th>Zipcode</th>
+  </tr>
+  <tr>
+    <td> <%= @neighborhood.city %> </td>
+    <td> <%= @neighborhood.state %> </td>
+    <td> <%= @neighborhood.zipcode %> </td>
+  </tr>
+</table> -->
+
+<h3> City: <%= @neighborhood.city %> </h3>
+<h3> State: <%= @neighborhood.state %> </h3>
+<h3> Zipcode: <%= @neighborhood.zipcode %> </h3>
+
 
 <h1>Review <%=@neighborhood.city%></h1>
 
@@ -39,16 +51,17 @@
 
 
 <% if !current_user %>
-  If you want to leave a review, please sign in.
+  <%= link_to 'If you want to leave a review, please sign in.', new_user_session_path, class: "btn warning" %>
 <% end %>
 
 <% if @reviews %>
 <h1> All Reviews For <%= @neighborhood.name %> </h1>
   <% @reviews.each do |review| %>
-    <p> <%= link_to review.title, neighborhood_review_path(@neighborhood, review) %>
+    <p>
+      <%= link_to review.title, neighborhood_review_path(@neighborhood, review), class: "btn info" %>
+    </p>
 
     <% if current_user %>
-
       <%= link_to 'Edit', edit_neighborhood_review_path(@neighborhood, review) %>
       <%= link_to 'Delete', neighborhood_review_path(@neighborhood, review), method: :delete, data: {confirm: 'Are you sure you want to delete review?'} %></p>
     <% end %>
