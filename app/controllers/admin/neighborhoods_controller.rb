@@ -22,7 +22,7 @@ class Admin::NeighborhoodsController < ApplicationController
     @neighborhood = Neighborhood.find(params[:id])
     @neighborhood.destroy
 
-    redirect_to admin_neighborhoods_path, flash: { info: "Deleted neighborhood" }
+    redirect_to admin_neighborhoods_path, flash: { success: "Deleted neighborhood" }
   end
 
   private
