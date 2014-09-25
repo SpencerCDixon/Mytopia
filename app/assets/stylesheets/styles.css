@@ -1,23 +1,17 @@
 .user-sidebar {
   background-color: #DDD;
-
-  height: 800px;
-}
+  height: 800px; }
 
 .user-reviews ul {
-  list-style: none;
-}
+  list-style: none; }
 
 .user-reviews ul li {
-  margin-bottom: 20px;
-}
+  margin-bottom: 20px; }
 
 .comments {
-  color: #c60f13;
-}
+  color: #c60f13; }
 
 .vote {
   float: right;
   margin-right: 100px;
-  margin-bottom: 0;
-}
+  margin-bottom: 0; }
