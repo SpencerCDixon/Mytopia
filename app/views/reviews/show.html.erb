@@ -29,8 +29,7 @@
   <% @review.comments.each do |comment| %>
     <li><%= comment.body %>
 
-
-  <% if current_user %>
+  <% if comment.owner?(current_user) %>
     <%= link_to 'Edit', edit_neighborhood_review_comment_path(comment.review.neighborhood, comment.review, comment) %>
 
     <%= link_to 'Delete', neighborhood_review_comment_path(comment.review.neighborhood, comment.review, comment), method: :delete, data: {confirm: 'Are you sure you want to delete comment?'} %>
