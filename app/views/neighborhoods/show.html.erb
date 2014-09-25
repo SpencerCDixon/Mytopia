@@ -45,7 +45,10 @@
 
     <%= f.submit %>
   <% end %>
+
 <% end %>
+
+
 
 <% if !current_user %>
   <%= link_to 'If you want to leave a review, please sign in.', new_user_session_path, class: "btn warning" %>
@@ -54,6 +57,13 @@
 <% if @reviews %>
 <h1> All Reviews For <%= @neighborhood.name %> </h1>
   <% @reviews.each do |review| %>
-    <p> <%= link_to review.title, neighborhood_review_path(@neighborhood, review), class: "btn info" %> </p>
+    <p>
+      <%= link_to review.title, neighborhood_review_path(@neighborhood, review), class: "btn info" %>
+    </p>
+
+    <% if review.owner?(current_user) %>
+      <%= link_to 'Edit', edit_neighborhood_review_path(@neighborhood, review) %>
+      <%= link_to 'Delete', neighborhood_review_path(@neighborhood, review), method: :delete, data: {confirm: 'Are you sure you want to delete review?'} %></p>
+    <% end %>
   <% end %>
 <% end %>

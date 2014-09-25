@@ -8,20 +8,6 @@ feature "authenticated user can write reviews" do
     expect(page).to have_content("Neighborhoods")
   end
 
-  scenario "reviews exist on neighborhood page" do
-    neighborhood = FactoryGirl.build(:neighborhood)
-    visit new_neighborhood_path
-    fill_in('City', with: neighborhood.city)
-    fill_in('State', with: neighborhood.state)
-    fill_in('Zipcode', with: neighborhood.zipcode)
-
-    click_on 'Create Neighborhood'
-
-    expect(page).to have_content(neighborhood.city)
-
-    expect(page).to have_content("Review #{neighborhood.city}")
-  end
-
   scenario 'authenticated user creates review' do
     user = FactoryGirl.create(:user)
     neighborhood = FactoryGirl.create(:neighborhood)
@@ -34,6 +20,8 @@ feature "authenticated user can write reviews" do
     fill_in('Body', with: review.body)
 
     click_on 'Create Review'
+
+    expect(page).to have_content("You have successfully created a review.")
   end
 
   scenario 'authenticated user cannot create a blank review' do
@@ -64,7 +52,6 @@ feature "authenticated user can write reviews" do
     visit neighborhood_path(neighborhood)
 
     expect(page).to have_content('If you want to leave a review, please sign in.')
-
   end
 end
 

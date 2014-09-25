@@ -5,4 +5,8 @@ class Comment < ActiveRecord::Base
 
   belongs_to :review
   belongs_to :user
+
+  def owner?(user)
+    self.user == user
+  end
 end

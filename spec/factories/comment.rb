@@ -3,5 +3,6 @@ FactoryGirl.define do
     body "This review sucks"
 
     association :review
+    association :user
   end
 end
