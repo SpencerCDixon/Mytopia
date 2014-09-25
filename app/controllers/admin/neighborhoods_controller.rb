@@ -22,11 +22,11 @@ class Admin::NeighborhoodsController < ApplicationController
     @neighborhood = Neighborhood.find(params[:id])
     @neighborhood.destroy
 
-    redirect_to admin_neighborhoods_path, notice: "Deleted neighborhood"
+    redirect_to admin_neighborhoods_path, flash: {info: "Deleted neighborhood"}
   end
 
   private
-  
+
   def neighborhood_params
     params.require(:neighborhood).permit(:name,:city, :state, :zipcode)
   end
