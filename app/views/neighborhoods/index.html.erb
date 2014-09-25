@@ -2,7 +2,7 @@
 <h1> Neighborhoods </h1>
 <ul>
   <% @neighborhoods.each do |n| %>
-    <li> <%= link_to n.city, neighborhood_path(n), class: "btn" %> </li>
+    <li> <%= link_to n.city, neighborhood_path(n), class: "btn default" %> </li>
   <% end %>
 </ul>
 

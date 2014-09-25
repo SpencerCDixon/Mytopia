@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :neighborhoods, only: [:index, :edit]
+    resources :neighborhoods, only: [:index, :edit, :update, :destroy]
   end
 end

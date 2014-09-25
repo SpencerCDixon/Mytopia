@@ -7,7 +7,7 @@ feature "Admin can see a list of neighborhoods" do
 
   scenario "admin visits neighborhood index" do
     sign_in_as(admin)
-    visit admin_neighborhoods_path
+    click_on "Edit Neighborhoods"
 
     expect(page).to have_content('Neighborhoods Admin')
   end

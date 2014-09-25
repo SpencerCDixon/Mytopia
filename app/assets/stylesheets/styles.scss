@@ -403,26 +403,44 @@ h2 {
 .col-1 {
   width: 15%;
   margin-bottom: 1.375em; }
+  @media only screen and (max-width: 400px) {
+    .col-1 {
+      width: 100%; } }
 
 .col-2 {
   width: 32%;
   margin-bottom: 1.375em; }
+  @media only screen and (max-width: 400px) {
+    .col-2 {
+      width: 100%; } }
 
 .col-3 {
   width: 49%;
   margin-bottom: 1.375em; }
+  @media only screen and (max-width: 400px) {
+    .col-3 {
+      width: 100%; } }
 
 .col-4 {
   width: 66%;
   margin-bottom: 1.375em; }
+  @media only screen and (max-width: 400px) {
+    .col-4 {
+      width: 100%; } }
 
 .col-5 {
   width: 83%;
   margin-bottom: 1.375em; }
+  @media only screen and (max-width: 400px) {
+    .col-5 {
+      width: 100%; } }
 
 .col-6 {
   width: 100%;
   margin-bottom: 1.375em; }
+  @media only screen and (max-width: 400px) {
+    .col-6 {
+      width: 100%; } }
 
 .last {
   margin-right: 0 !important;
@@ -462,8 +480,9 @@ h2 {
   white-space: nowrap;
   vertical-align: middle;
   cursor: pointer;
-  background: #95a5a6;
-  color: black; }
+  color: white; }
+  .btn:hover, .btn:focus {
+    color: black; }
 
 .small {
   font-size: 1em; }
@@ -474,22 +493,7 @@ h2 {
 .lrg {
   font-size: 2em; }
 
-.success {
-  background-color: #27ae60; }
-
-.info {
-  background-color: #3498db; }
-
-.warning {
-  background-color: #f39c12; }
-
-.danger {
-  background-color: #e74c3c; }
-
-.btn:hover, .btn:focus {
-  color: white; }
-
-.btn.default:hover, .btn.default:focus {
+.default {
   background-color: #4a5758;
   background-image: -moz-linear-gradient(#95a5a6, #4a5758);
   background-image: -o-linear-gradient(#95a5a6, #4a5758);
@@ -497,8 +501,10 @@ h2 {
   background-image: -webkit-linear-gradient(#95a5a6, #4a5758);
   background-image: ms-linear-gradient(#95a5a6, #4a5758);
   background-image: linear-gradient(#95a5a6, #4a5758); }
+  .default:hover, .default:focus {
+    background: #95a5a6; }
 
-.btn.success:hover, .btn.success:focus {
+.btn.success {
   background-color: #0b311b;
   background-image: -moz-linear-gradient(#27ae60, #0b311b);
   background-image: -o-linear-gradient(#27ae60, #0b311b);
@@ -506,8 +512,10 @@ h2 {
   background-image: -webkit-linear-gradient(#27ae60, #0b311b);
   background-image: ms-linear-gradient(#27ae60, #0b311b);
   background-image: linear-gradient(#27ae60, #0b311b); }
+  .btn.success:hover, .btn.success:focus {
+    background: #27ae60; }
 
-.btn.info:hover, .btn.info:focus {
+.btn.info {
   background-color: #124364;
   background-image: -moz-linear-gradient(#3498db, #124364);
   background-image: -o-linear-gradient(#3498db, #124364);
@@ -515,8 +523,10 @@ h2 {
   background-image: -webkit-linear-gradient(#3498db, #124364);
   background-image: ms-linear-gradient(#3498db, #124364);
   background-image: linear-gradient(#3498db, #124364); }
+  .btn.info:hover, .btn.info:focus {
+    background: #3498db; }
 
-.btn.warning:hover, .btn.warning:focus {
+.btn.warning {
   background-color: #674105;
   background-image: -moz-linear-gradient(#f39c12, #674105);
   background-image: -o-linear-gradient(#f39c12, #674105);
@@ -524,8 +534,10 @@ h2 {
   background-image: -webkit-linear-gradient(#f39c12, #674105);
   background-image: ms-linear-gradient(#f39c12, #674105);
   background-image: linear-gradient(#f39c12, #674105); }
+  .btn.warning:hover, .btn.warning:focus {
+    background: #f39c12; }
 
-.btn.danger:hover, .btn.danger:focus {
+.btn.danger {
   background-color: #7b190f;
   background-image: -moz-linear-gradient(#e74c3c, #7b190f);
   background-image: -o-linear-gradient(#e74c3c, #7b190f);
@@ -533,6 +545,8 @@ h2 {
   background-image: -webkit-linear-gradient(#e74c3c, #7b190f);
   background-image: ms-linear-gradient(#e74c3c, #7b190f);
   background-image: linear-gradient(#e74c3c, #7b190f); }
+  .btn.danger:hover, .btn.danger:focus {
+    background: #e74c3c; }
 
 .nav {
   height: 50px;
@@ -541,6 +555,24 @@ h2 {
 
 body {
   padding: 0; }
+
+.form-group {
+  margin-bottom: 0.6875em; }
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 12px rgba(46, 204, 113, 0.2); }
+
+  50% {
+    -webkit-box-shadow: 0 0 12px rgba(46, 204, 113, 0.9); }
+
+  100% {
+    -webkit-box-shadow: 0 0 12px rgba(46, 204, 113, 0.2); } }
+input {
+  width: 100%;
+  padding: 0.6875em; }
+  input:focus {
+    -webkit-animation: pulse 1.5s infinite ease-in-out; }
 
 /* =================================================================================================
 Global styles
