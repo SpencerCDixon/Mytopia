@@ -40,7 +40,7 @@ feature "Admin can update a neighborhood" do
   end
 
   scenario "admin deletes a neighborhood" do
-    neighborhood = FactoryGirl.create(:neighborhood)
+    FactoryGirl.create(:neighborhood)
     sign_in_as(admin)
     visit admin_neighborhoods_path
 
