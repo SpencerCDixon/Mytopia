@@ -1,6 +1,11 @@
 <%= link_to "home", root_path, class: "btn success"  %>
 <% if current_user %>
   <%= link_to "sign out", destroy_user_session_path, method: :delete, class: "btn success"  %>
+
+  <% if current_user.admin? %>
+    <%= link_to "Edit Neighborhoods", admin_neighborhoods_path, class: "btn success" %>
+  <% end %>
+
 <% else %>
   <%= link_to "sign up", new_user_registration_path, class: "btn success" %>
   <%= link_to "sign in", new_user_session_path, class: "btn success"  %>

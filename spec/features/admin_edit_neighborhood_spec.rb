@@ -15,7 +15,6 @@ feature "Admin can update a neighborhood" do
   end
 
   scenario "user cannot go to edit page for a neighborhood" do
-
     sign_in_as(user)
     visit admin_neighborhoods_path
 
@@ -24,5 +23,19 @@ feature "Admin can update a neighborhood" do
   end
 
   scenario "admin edits a neighborhood" do
+    neighborhood = FactoryGirl.create(:neighborhood)
+    sign_in_as(admin)
+    visit admin_neighborhoods_path
+
+    click_on "Edit"
+    expect(page).to have_content("Edit #{neighborhood.name}")
+
+    fill_in('City', with: "Newtonville")
+    fill_in('State', with: "New Hampshire")
+    fill_in('Zipcode', with: "01012")
+
+    click_on "Update Neighborhood"
+
+    expect(page).to have_content("Newtonville")
   end
 end
