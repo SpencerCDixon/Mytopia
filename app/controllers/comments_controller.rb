@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.review_id = params[:review_id]
     if @comment.save
+      flash[:notice] = "You have successfully posted your comment."
       redirect_to neighborhood_review_path(@review.neighborhood, @review)
     else
       render 'reviews/show'
@@ -23,8 +24,10 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
 
     if @comment.update(comment_params)
+      flash[:notice]="You have successfully updated your comment."
       redirect_to neighborhood_review_path(@comment.review.neighborhood, @comment.review)
     else
+      flash[:notice] = "Please correct changes."
       render 'edit'
     end
   end
