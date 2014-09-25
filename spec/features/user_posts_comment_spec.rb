@@ -14,6 +14,7 @@ feature "Authenticated user can comment on reviews" do
     click_on 'Create Comment'
 
     expect(page).to have_content(comment.body)
+    expect(page).to have_content("You have successfully posted your comment.")
 
   end
 

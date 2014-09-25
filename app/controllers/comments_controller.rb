@@ -35,6 +35,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
+    flash[:success] = "You successfully deleted your comment."
 
     redirect_to neighborhood_review_path(@comment.review.neighborhood, @comment.review)
   end

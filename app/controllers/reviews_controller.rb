@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @review.neighborhood_id = params[:neighborhood_id]
 
     if @review.save
-      flash[:notice] = "You have successfully created a review."
+      flash[:success] = "You have successfully created a review."
       redirect_to @neighborhood
     else
       render 'neighborhoods/show'
@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
 
     if @review.update(review_params)
-      flash[:notice] = "You have successfully updated your review."
+      flash[:success] = "You have successfully updated your review."
       redirect_to neighborhood_review_path(@review.neighborhood, @review)
     else
       render 'edit'
@@ -40,6 +40,8 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
+
+    flash[:success] = "You have successfully deleted your review."
 
     redirect_to neighborhood_path(@review.neighborhood)
   end
