@@ -53,8 +53,6 @@ feature "authenticated user can write reviews" do
 
     expect(page).to have_content('If you want to leave a review, please sign in.')
   end
-
-
 end
 
 
