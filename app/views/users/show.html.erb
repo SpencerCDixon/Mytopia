@@ -1,1 +1,9 @@
-<h1> Users </h1>
+<h1><%= @user.username %></h1>
+
+<p><%= @user.profile_photo %></p>
+<p><%= @user.email %></p>
+<p><%= @user.sign_in_count %></p>
+
+<% if current_user == @user %>
+
+<% end %>
