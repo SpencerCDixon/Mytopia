@@ -18,6 +18,13 @@ class Admin::NeighborhoodsController < ApplicationController
     end
   end
 
+  def destroy
+    @neighborhood = Neighborhood.find(params[:id])
+    @neighborhood.destroy
+
+    redirect_to admin_neighborhoods_path, notice: "Deleted neighborhood"
+  end
+
   private
   def neighborhood_params
     params.require(:neighborhood).permit(:name,:city, :state, :zipcode)

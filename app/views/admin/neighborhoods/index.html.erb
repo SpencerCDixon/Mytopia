@@ -1,7 +1,9 @@
 <h1>Neighborhoods Admin</h1>
+<%= link_to 'New Neighborhood', new_neighborhood_path, class: "btn med info" %>
+
 
 <ul>
   <% @neighborhoods.each do |n| %>
-    <li> <%= n.city %> <%= link_to "Edit", edit_admin_neighborhood_path(n) %> </li>
+    <li> <%= n.city %> <%= link_to "Edit", edit_admin_neighborhood_path(n), class: "btn info" %> <%= link_to "Delete", admin_neighborhood_path(n), class: "btn danger", method: :delete %> </li>
   <% end %>
 </ul>

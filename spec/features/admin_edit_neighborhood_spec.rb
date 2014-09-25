@@ -38,4 +38,13 @@ feature "Admin can update a neighborhood" do
 
     expect(page).to have_content("Newtonville")
   end
+
+  scenario "admin deletes a neighborhood" do
+    neighborhood = FactoryGirl.create(:neighborhood)
+    sign_in_as(admin)
+    visit admin_neighborhoods_path
+
+    click_on "Delete"
+    expect(page).to_not have_content("Newtonville")
+  end
 end
