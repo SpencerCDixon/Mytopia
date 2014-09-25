@@ -3,7 +3,6 @@ require 'rails_helper'
 feature "Authorized users can update and delete their own comments" do
   scenario 'wrong user cannot see the edit or delete button for comments' do
     comment = FactoryGirl.create(:comment)
-    authorized_user = comment.user
     unauthorized_user =comment.review.user
 
     sign_in_as(unauthorized_user)
