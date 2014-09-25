@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
 
     if @comment.update(comment_params)
-      flash[:notice]="You have successfully updated your comment."
+      flash[:notice] = "You have successfully updated your comment."
       redirect_to neighborhood_review_path(@comment.review.neighborhood, @comment.review)
     else
       flash[:notice] = "Please correct changes."
