@@ -26,22 +26,8 @@ class Admin::NeighborhoodsController < ApplicationController
   end
 
   private
+  
   def neighborhood_params
     params.require(:neighborhood).permit(:name,:city, :state, :zipcode)
   end
-  #
-  #   def update
-  #   @question = Question.find(params[:id])
-  #
-  #   if @question.update(question_params)
-  #     redirect_to @question
-  #   else
-  #     render 'edit'
-  #   end
-  # end
-  #
-  # private
-  # def question_params
-  #   params.require(:question).permit(:title, :description, :user_id)
-  # end
 end
