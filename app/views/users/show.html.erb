@@ -10,7 +10,7 @@
   <h2><%= "#{@user.username}'s Reviews"%></h2><br>
   <ol>
     <li>
-    <%= link_to "#{review.title}", neighborhood_review_path(review.neighborhood, review) %><%= " - Upvotes: #{review.upvotes}"  %>
+    <%= link_to review.title, neighborhood_review_path(review.neighborhood, review) %><%= " - Upvotes: #{review.upvotes}"  %>
     <% if review.owner?(current_user) %>
       <%= link_to 'Edit', edit_neighborhood_review_path(review.neighborhood, review) %>
       <%= link_to 'Delete', neighborhood_review_path(review.neighborhood, review), method: :delete, data: {confirm: 'Are you sure you want to delete review?'} %></p>
