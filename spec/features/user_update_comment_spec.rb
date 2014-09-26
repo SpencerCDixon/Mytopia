@@ -1,3 +1,4 @@
+require 'rails_helper'
 feature 'A user can update their own comments' do
 
   scenario 'authenticated user can update a comment' do
