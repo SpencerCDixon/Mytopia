@@ -16,7 +16,7 @@ feature "Admin can see a list of neighborhoods" do
     sign_in_as(user)
     visit admin_neighborhoods_path
 
-    expect(page).to have_content("You are not authorized to view this resource.")
+    expect(page).to have_content("Invalid request")
     expect(current_path).to eq(root_path)
   end
 

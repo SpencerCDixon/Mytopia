@@ -18,8 +18,8 @@ feature "Admin can update a neighborhood" do
     sign_in_as(user)
     visit admin_neighborhoods_path
 
-    expect(page).to have_content("You are not authorized to view this resource.")
-    expect(current_path).to eq(root_path)
+    expect(page).to have_content("Invalid request")
+    
   end
 
   scenario "admin edits a neighborhood" do

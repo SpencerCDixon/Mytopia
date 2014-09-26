@@ -41,6 +41,7 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'carrierwave'
 gem 'fog'
+gem 'foundation-rails'
 
 gem 'rails_12factor', group: :production
 

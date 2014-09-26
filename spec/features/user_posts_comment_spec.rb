@@ -58,4 +58,5 @@ feature "Authenticated user can comment on reviews" do
 
     expect(page).to have_content('prohibited')
   end
+
 end

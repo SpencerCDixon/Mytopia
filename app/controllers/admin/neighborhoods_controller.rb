@@ -1,7 +1,11 @@
 class Admin::NeighborhoodsController < ApplicationController
-  before_filter :authorize!
+  before_filter :admin_authorize!
   def index
     @neighborhoods = Neighborhood.all
+  end
+
+  def show
+    @neighborhood = Neighborhood.find(params[:id])
   end
 
   def edit
