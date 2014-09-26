@@ -32,6 +32,6 @@ class Admin::ReviewsController < ApplicationController
   private
 
   def neighborhood_params
-    params.require(:review).permit(:title,:body)
+    params.require(:review).permit(:title, :body)
   end
 end
