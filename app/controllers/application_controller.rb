@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def authorize!
     if current_user.nil? || !current_user.admin?
-      flash[:warning] = "You are not authorized to view this resource."
+      flash[:warning] = "Invalid request"
       redirect_to root_path
     end
   end

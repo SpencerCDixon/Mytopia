@@ -6,6 +6,7 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'factory_girl'
 require 'valid_attribute'
+require 'email_spec'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -52,4 +53,6 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.include AuthenticationHelper
+  config.include(EmailSpec::Helpers)
+  config.include(EmailSpec::Matchers)
 end
