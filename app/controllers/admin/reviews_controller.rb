@@ -16,7 +16,7 @@ class Admin::ReviewsController < ApplicationController
     @review = Review.find(params[:id])
 
     if @review.update(neighborhood_params)
-      redirect_to @review
+      redirect_to admin_neighborhood_review_path(@review.neighborhood, @review)
     else
       render 'edit'
     end

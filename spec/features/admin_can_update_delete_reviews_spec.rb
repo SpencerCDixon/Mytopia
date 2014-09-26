@@ -13,11 +13,11 @@ feature "Admin can update or delete review" do
     click_on "Edit"
     expect(page).to have_content("Edit #{review.title}")
 
-    fill_in "Title", with: "Updated Review"
+    fill_in "Title", with: "New title"
 
     click_on "Update Review"
 
-    expect(page).to have_content("Edit Update Review")
+    expect(page).to have_content("New title")
   end
 
 
