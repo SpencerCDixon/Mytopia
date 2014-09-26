@@ -1,0 +1,26 @@
+<h1>Edit <%= @review.title %></h1>
+
+<%= form_for [:admin, @review.neighborhood, @review] do |f| %>
+ <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited
+        this review from being saved:</h2>
+      <ul>
+        <% @review.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end%>
+   <p>
+    <%= f.label :title  %><br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :body  %><br>
+    <%= f.text_field :body %>
+  </p>
+
+  <%= f.submit "Update Review", class: "button" %>
+<% end %>

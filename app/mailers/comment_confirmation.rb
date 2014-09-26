@@ -6,8 +6,8 @@ class CommentConfirmation < ActionMailer::Base
   #
   #   en.comment_confirmation.notification.subject
   #
-  def notification(comment_body, reviewer)
-    @comment_body = comment_body
+  def notification(comment, reviewer)
+    @comment = comment
     @reviewer = reviewer
 
     mail to: @reviewer.email,
