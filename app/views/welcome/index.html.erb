@@ -2,4 +2,6 @@
 
 <%= link_to "All Neighborhoods", neighborhoods_path, class: "btn info med"%>
 
-<%= link_to "Your Profile", user_path(current_user) %>
+<% if current_user == true %>
+  <%= link_to "Your Profile", user_path(current_user) %>
+<% end %>
