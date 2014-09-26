@@ -4,6 +4,10 @@ class Admin::NeighborhoodsController < ApplicationController
     @neighborhoods = Neighborhood.all
   end
 
+  def show
+    @neighborhood = Neighborhood.find(params[:id])
+  end
+
   def edit
     @neighborhood = Neighborhood.find(params[:id])
   end
