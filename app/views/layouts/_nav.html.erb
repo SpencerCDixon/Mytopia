@@ -10,6 +10,8 @@
     <li><%= link_to "home", root_path, class: "btn success" %></li>
       <% if current_user %>
         <li><%= link_to "sign out", destroy_user_session_path, method: :delete, class: "btn success" %></li>
+        <li><%= link_to "your profile", user_path(current_user), class: "btn success" %>
+</li>
 
         <% if current_user.admin? %>
           <li><%= link_to "Edit Neighborhoods", admin_neighborhoods_path, class: "btn success" %></li>

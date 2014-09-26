@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
+
   namespace :admin do
     resources :neighborhoods, only: [:index, :show, :edit, :update, :destroy] do
       resources :reviews, only: [:index, :show, :edit, :update, :destroy] do
@@ -15,5 +16,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :index]
 end
