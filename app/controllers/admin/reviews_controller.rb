@@ -1,5 +1,5 @@
 class Admin::ReviewsController < ApplicationController
-  before_filter :authorize!
+  before_filter :admin_authorize!
   def index
     @reviews = Review.all
   end
