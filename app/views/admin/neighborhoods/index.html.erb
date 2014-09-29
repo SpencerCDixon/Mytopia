@@ -1,9 +1,11 @@
-<h1>Neighborhoods Admin</h1>
-<%= link_to 'New Neighborhood', new_neighborhood_path, class: "btn med info" %>
+<div class="row">
+  <h1>Neighborhoods Admin</h1>
+  <%= link_to 'New Neighborhood', new_neighborhood_path, class: "btn med info" %>
 
 
-<ul>
-  <% @neighborhoods.each do |n| %>
-    <li> <%= link_to n.city, admin_neighborhood_path(n) %> <%= link_to "Edit", edit_admin_neighborhood_path(n), class: "btn info" %> <%= link_to "Delete", admin_neighborhood_path(n), class: "btn danger", method: :delete, data: {confirm: 'Are you sure you want to delete comment?'} %> </li>
-  <% end %>
-</ul>
+  <ul>
+    <% @neighborhoods.each do |n| %>
+      <li> <%= link_to n.city, admin_neighborhood_path(n) %> <%= link_to "Edit", edit_admin_neighborhood_path(n), class: "btn info" %> <%= link_to "Delete", admin_neighborhood_path(n), class: "btn danger", method: :delete, data: {confirm: 'Are you sure you want to delete comment?'} %> </li>
+    <% end %>
+  </ul>
+</div>

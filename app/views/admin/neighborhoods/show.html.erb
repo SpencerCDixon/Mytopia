@@ -1,7 +1,9 @@
-<h1><%= @neighborhood.name %></h1>
+<div class="row">
+  <h1><%= @neighborhood.name %></h1>
 
-<ul>
-  <% @neighborhood.reviews.each do |review| %>
-    <li><%= link_to review.title, admin_neighborhood_review_path(review.neighborhood, review) %></li>
-  <% end %>
-</ul>
+  <ul>
+    <% @neighborhood.reviews.each do |review| %>
+      <li><%= link_to review.title, admin_neighborhood_review_path(review.neighborhood, review) %></li>
+    <% end %>
+  </ul>
+</div>
