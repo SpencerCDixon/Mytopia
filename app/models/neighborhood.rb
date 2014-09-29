@@ -9,7 +9,7 @@ class Neighborhood < ActiveRecord::Base
     if search.present?
       where("name ilike :q or city ilike :q or state ilike :q", q: "%#{search}%")
     else
-      self.all # Needs to be fixed 
+      self.all # Needs to be fixed when pagination is done
     end
   end
 end
