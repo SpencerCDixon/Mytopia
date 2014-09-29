@@ -44,6 +44,7 @@ gem 'fog'
 gem 'foundation-rails'
 
 gem 'rails_12factor', group: :production
+gem "rubillow"
 
 group :development, :test do
   gem 'valid_attribute'
