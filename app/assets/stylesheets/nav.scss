@@ -1,0 +1,8 @@
+nav.top-bar {
+  height: 50px;
+  a{
+    &:hover {
+      border-bottom: 5px solid #e08215;
+    }
+  }
+}

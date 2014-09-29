@@ -11,12 +11,13 @@
 .search-neighborhood {
   padding: 15px;
   background: rgba(60, 61, 62, 0.9);
-  border-radius: 15px;
   margin-top: 200px;
   -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
   -moz-box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.7); }
-  .search-neighborhood h1, .search-neighborhood h2 {
+  .search-neighborhood h1 {
+    color: white; }
+  .search-neighborhood h2 {
     color: #e08215; }
 
 .home-tagline {
@@ -29,10 +30,14 @@ body {
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #abc7fa), color-stop(1, #4251b8));
   background-image: -webkit-linear-gradient(#abc7fa, #4251b8);
   background-image: ms-linear-gradient(#abc7fa, #4251b8);
-  background-image: linear-gradient(#abc7fa, #4251b8); }
+  background-image: linear-gradient(#abc7fa, #4251b8);
+  background-repeat: no-repeat; }
 
 .featured {
   text-align: center; }
   .featured h1 {
     color: #e08215;
     margin-top: 20px; }
+
+.alert-box {
+  margin-bottom: 0; }

@@ -28,12 +28,14 @@
 .search-neighborhood {
   padding: 15px;
   background:   rgba(60, 61, 62, .9);
-  border-radius: 15px;
   margin-top: 200px;
   -webkit-box-shadow: 0 0 40px rgba(0,0,0,.7);
   -moz-box-shadow: 0 0 40px rgba(0,0,0,.7);
   box-shadow: 0 0 40px rgba(0,0,0,.7);
-  h1, h2 {
+  h1 {
+    color: white;
+  }
+  h2 {
     color: #e08215;
   }
 }
@@ -43,7 +45,8 @@
 }
 
 body {
-  @include linear-gradient(#abc7fa, #4251b8)
+  @include linear-gradient(#abc7fa, #4251b8);
+  background-repeat: no-repeat;
 }
 
 .featured {
@@ -52,4 +55,9 @@ body {
     color: #e08215;
     margin-top: 20px;
   }
+}
+
+.alert-box {
+  margin-bottom: 0;
+
 }
