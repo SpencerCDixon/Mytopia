@@ -1,4 +1,4 @@
-<h1>Edit</h1>
+<h1>Edit <%= @comment.body %> </h1>
 
 <%= form_for [:admin, @comment.review.neighborhood, @comment.review, @comment] do |f| %>
  <% if @comment.errors.any? %>
