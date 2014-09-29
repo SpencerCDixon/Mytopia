@@ -1,8 +1,18 @@
 nav.top-bar {
-  height: 50px;
-  a{
+  height: 55px;
+  li a {
+    font-size: 1.1em;
     &:hover {
       border-bottom: 5px solid #e08215;
     }
+  }
+}
+
+nav.top-bar ul li.name h1 a {
+  font-size: 2em;
+  margin-top: 2px;
+  &:hover {
+  border: none;
+  color: #e08215;
   }
 }
