@@ -1,6 +1,6 @@
 class NeighborhoodsController < ApplicationController
   def index
-    @neighborhoods = Neighborhood.all
+    @neighborhoods = Neighborhood.order(:zipcode).page params[:page]
   end
 
   def show
