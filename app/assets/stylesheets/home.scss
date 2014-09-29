@@ -1,22 +1,55 @@
+@mixin linear-gradient($from, $to) {
+   background-color: $to;
+   background-image: -moz-linear-gradient($from, $to);
+   background-image: -o-linear-gradient($from, $to);
+   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, $from), color-stop(1, $to));
+   background-image: -webkit-linear-gradient($from, $to);
+   background-image: ms-linear-gradient($from, $to);
+   background-image: linear-gradient($from, $to);
+}
+@mixin shadow($x, $y, $blur, $color) {
+       -webkit-box-shadow: $x $y $blur $color;
+          -moz-box-shadow: $x $y $blur $color;
+               box-shadow: $x $y $blur $color;
+}
+
 .home-image {
   width: 100%;
 }
 
 .dream-home {
   background-image:url('home_page.jpg');
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
-  background-position:center;
+  background-position:relative;
   height: 800px;
 }
 
 .search-neighborhood {
   padding: 15px;
-  background: rgba(236, 240, 241, .8);
+  background:   rgba(60, 61, 62, .9);
   border-radius: 15px;
   margin-top: 200px;
+  -webkit-box-shadow: 0 0 40px rgba(0,0,0,.7);
+  -moz-box-shadow: 0 0 40px rgba(0,0,0,.7);
+  box-shadow: 0 0 40px rgba(0,0,0,.7);
+  h1, h2 {
+    color: #e08215;
+  }
 }
 
 .home-tagline {
   text-align: center;
+}
+
+body {
+  @include linear-gradient(#abc7fa, #4251b8)
+}
+
+.featured {
+  text-align: center;
+  h1 {
+    color: #e08215;
+    margin-top: 20px;
+  }
 }
