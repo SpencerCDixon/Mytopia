@@ -1,24 +1,28 @@
-<%= form_for @neighborhood do |f| %>
+<div class="row">
 
-<p>
-  <%= f.label :city %><br>
-  <%= f.text_field :city %>
-</p>
+  <%= form_for @neighborhood do |f| %>
 
-<p>
-  <%= f.label :state %><br>
-  <%= f.text_field :state %>
-</p>
-<p>
-  <%= f.label :zipcode %><br>
-  <%= f.text_field :zipcode %>
-</p>
+  <p>
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </p>
 
-<p>
-  <%= f.label :name %><br>
-  <%= f.text_field :name %>
-</p>
+  <p>
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </p>
+  <p>
+    <%= f.label :zipcode %><br>
+    <%= f.text_field :zipcode %>
+  </p>
 
-  <%= f.submit 'Create Neighborhood', class: "button" %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
 
-<% end %>
+    <%= f.submit 'Create Neighborhood', class: "button" %>
+
+  <% end %>
+
+</div>

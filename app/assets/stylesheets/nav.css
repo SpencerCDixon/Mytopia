@@ -1,0 +1,14 @@
+nav.top-bar {
+  height: 52px; }
+  nav.top-bar li a {
+    font-size: 1.1em; }
+    nav.top-bar li a:hover {
+      border-bottom: 5px solid #e08215; }
+
+nav.top-bar ul li.name h1 a {
+  font-size: 2em;
+  margin-top: 2px;
+  color: #e08215; }
+  nav.top-bar ul li.name h1 a:hover {
+    border: none;
+    color: #fff; }

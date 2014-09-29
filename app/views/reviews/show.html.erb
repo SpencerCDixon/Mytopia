@@ -1,40 +1,44 @@
-<h1> <%= @review.title %> </h1>
-<p> <%= @review.body %> </p>
+<div class="row">
 
-<% if current_user %>
-  <%= form_for [@review.neighborhood, @review, @comment] do |f| %>
-    <% if @comment.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@comment.errors.count, "error") %> prohibited
-            this review from being saved:</h2>
-          <ul>
-            <% @comment.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end%>
-  <p>
-    <%= f.label :body %>
-    <%= f.text_field :body %>
-  </p>
+  <h1> <%= @review.title %> </h1>
+  <p> <%= @review.body %> </p>
 
-  <%= f.submit 'Create Comment', class: "button" %>
-  <% end %>
-<% else %>
-  <%= link_to "Sign in to comment", new_user_session_path, class: "btn warning" %>
-<% end %>
+  <% if current_user %>
+    <%= form_for [@review.neighborhood, @review, @comment] do |f| %>
+      <% if @comment.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@comment.errors.count, "error") %> prohibited
+              this review from being saved:</h2>
+            <ul>
+              <% @comment.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end%>
+    <p>
+      <%= f.label :body %>
+      <%= f.text_field :body %>
+    </p>
 
-<ul>
-  <% @review.comments.each do |comment| %>
-    <li><%= comment.body %>
-
-  <% if comment.owner?(current_user) %>
-    <%= link_to 'Edit', edit_neighborhood_review_comment_path(comment.review.neighborhood, comment.review, comment) %>
-
-    <%= link_to 'Delete', neighborhood_review_comment_path(comment.review.neighborhood, comment.review, comment), method: :delete, data: {confirm: 'Are you sure you want to delete comment?'} %>
+    <%= f.submit 'Create Comment', class: "button" %>
     <% end %>
-   </li>
-
+  <% else %>
+    <%= link_to "Sign in to comment", new_user_session_path, class: "btn warning" %>
   <% end %>
-</ul>
+
+  <ul>
+    <% @review.comments.each do |comment| %>
+      <li><%= comment.body %>
+
+    <% if comment.owner?(current_user) %>
+      <%= link_to 'Edit', edit_neighborhood_review_comment_path(comment.review.neighborhood, comment.review, comment) %>
+
+      <%= link_to 'Delete', neighborhood_review_comment_path(comment.review.neighborhood, comment.review, comment), method: :delete, data: {confirm: 'Are you sure you want to delete comment?'} %>
+      <% end %>
+     </li>
+
+    <% end %>
+  </ul>
+
+</div>
