@@ -1,5 +1,22 @@
-<h1> <%= @review.title %> </h1>
-<p> <%= @review.body %> </p>
+<!-- <a class="th" href="#">
+  <img src="">
+</a> -->
+
+<div class="row">
+  <div class="large-4 columns"><h1></h1></div>
+  <div class="large-8 columns"><h1> <%= @review.title %> </h1></div>
+</div>
+
+<div class="row">
+  <div class="large-4 columns"></div>
+  <div class="large-8 columns"> <%= @review.body %> </div>
+</div>
+
+<!-- <ul class="small-block-grid-3">
+  <li>...</li>
+</ul> -->
+
+<!-- <p> <%= @review.body %> </p> -->
 
 <% if current_user %>
   <%= form_for [@review.neighborhood, @review, @comment] do |f| %>
@@ -13,7 +30,7 @@
             <% end %>
           </ul>
         </div>
-      <% end%>
+      <% end %>
   <p>
     <%= f.label :body %>
     <%= f.text_field :body %>
