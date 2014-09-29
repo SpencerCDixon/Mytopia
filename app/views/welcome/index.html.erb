@@ -1,3 +1,18 @@
 <h1>Welcome</h1>
 
 <%= link_to "All Neighborhoods", neighborhoods_path, class: "button"%>
+
+<h1>test</h1>
+
+<%= form_tag root_path, method: :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+<% if @neighborhoods %>
+  <% @neighborhoods.each do |n| %>
+  <p><%= link_to n.name, neighborhood_path(n) %></p>
+  <% end %>
+<% end %>
