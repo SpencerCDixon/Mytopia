@@ -1,76 +1,47 @@
-<div class="row">
 
-  <h1><%= @user.username %></h1>
+<div class="row" style="margin-top: 10px;">
 
-  <p><%= @user.profile_photo %></p>
+  <aside class="large-4 columns user-sidebar">
+    <img src=<%= @user.profile_photo%>>
+    <%= form_for @user do |f| %>
+    <p>
+      <%= f.label :profile_photo %>
+      <%= f.file_field :profile_photo %>
+    </p>
 
-  <% if @user == current_user %>
+    <%= f.submit "Update Photo", class: "button" %>
+    <% end %>
+
+
+    <h1><%= @user.username %></h1>
+    <% if @user == current_user %>
     <%= @user.email %>
-  <% end %>
+    <% end %>
+  </aside>
 
-  <% @user.reviews.each do |review| %>
-    <h2><%= "#{@user.username}'s Reviews"%></h2><br>
-    <ol>
+  <section class="large-8 columns user-reviews">
+    <h2><%= "#{@user.username}'s Reviews"%></h2>
+    <% @user.reviews.each do |review| %>
+    <ul>
       <li>
-      <%= link_to review.title, neighborhood_review_path(review.neighborhood, review) %><%= " - Upvotes: #{review.upvotes}"  %>
-      <% if review.owner?(current_user) %>
-        <%= link_to 'Edit', edit_neighborhood_review_path(review.neighborhood, review) %>
-        <%= link_to 'Delete', neighborhood_review_path(review.neighborhood, review), method: :delete, data: {confirm: 'Are you sure you want to delete review?'} %></p>
-      <% end %>
-      <p><%= review.updated_at %></p>
-      <p><%= review.body %></p>
-    </li>
-    </ol>
-  <% end %>
-
-
-  <div class="row" style="margin-top: 10px;">
-
-    <aside class="large-4 columns user-sidebar">
-      <img src="https://avatars0.githubusercontent.com/u/7971072?v=2&s=400">
-    </aside>
-
-    <section class="large-8 columns user-reviews">
-      <ul>
-        <li>
-          <h1><a href="#"> Title of the best review ever </a></h1>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-          </p>
-        </li>
-        <li>
-          <a href="#" class="comments"> 5 comments </a>
-          <button class="button tiny vote alert"> VOTE </button>
-
-        </li>
-        <li>
-          <h1><a href="#" > Title of the best review ever </a> </h1>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknoook. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-          </p>
-          <a href="#" class="comments"> 1 comments </a>
-          <button class="button tiny vote alert"> VOTE </button>
-        </li>
-        <li>
-          <h1><a href="#"> Title of the best review ever </a> </h1>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic types
-          </p>
-          <a href="#" class="comments"> 9 comments </a>
-          <button class="button tiny vote alert"> VOTE </button>
-
-        </li>
-        <li>
-          <h1><a href="#"> Title of the best review ever </a> </h1>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-          </p>
-          <a href="#" class="comments"> 15 comments </a>
-        </li>
-
-      </ul>
-    </section>
-
-  </div>
+        <h3><a href="#">  <%= link_to review.title, neighborhood_review_path(review.neighborhood, review) %> </a>
+          <% if review.owner?(current_user) %>
+          <%= link_to 'Edit', edit_neighborhood_review_path(review.neighborhood, review) %>
+          <%= link_to 'Delete', neighborhood_review_path(review.neighborhood, review), method: :delete, data: {confirm: 'Are you sure you want to delete review?'} %></h3>
+         <% end %>
+        <p>
+          <%= review.updated_at %>
+        </p>
+        <p>
+          <%=review.body %>
+       </p>
+      </li>
+      <li>
+      <%= link_to " #{review.comments.count} Comments", neighborhood_review_path(review.neighborhood, review) %>
+        <button class="button tiny vote alert"> <%= "Upvotes: #{review.upvotes}"  %> </button>
+      </li>
+    </ul>
+    <% end %>
+  </section>
 
 </div>

@@ -12,9 +12,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :neighborhoods, only: [:index, :show, :edit, :update, :destroy] do
       resources :reviews, only: [:index, :show, :edit, :update, :destroy] do
+        resources :comments, only: [:index, :show, :edit, :update, :destroy]
       end
     end
   end
 
-  resources :users, only: [:show, :index]
+  resources :users, only: [:show, :index, :edit, :update]
 end
