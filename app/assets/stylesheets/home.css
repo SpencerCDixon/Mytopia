@@ -2,7 +2,7 @@
   width: 100%; }
 
 .dream-home {
-  background-image: url("https://s3.amazonaws.com/mytopia-production/uploads/images/home_page.jpg?X-Amz-Date=20140930T150400Z&X-Amz-Expires=300&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Signature=52a6b77a4d422c90df4377ab21ea58b2b8b40f9ae83082a7300481cd60e89efa&X-Amz-Credential=ASIAIYFBQCJ7YAA7UZXA/20140930/us-east-1/s3/aws4_request&X-Amz-SignedHeaders=Host&x-amz-security-token=AQoDYXdzEDAagAJ%2Bz0Oglj16hIA7ENXtIIFQ1TNuCRH/0N3N/377vX0MSwOjlqhI1BMDsf3MS1OmXNdk0kLzxS%2BImfB5wmTU4VntzteQn6uFJmSpGeDWAIgRBuXoQ0VgHT6PgwaBDcheb%2BbfH31P6iDIQEj84rRDvalPT74XEDxNQeP/X8jMZLEK3SjkGmE1dSSq4aP7Nb1iv9X%2BVkJDElmrjPtg16MksIhvBPWlbI7XXG8HR/J%2BIQVXF9yYIwlsuryHNP3znYIO/Ya7PFuU7TOA/CocCkTHyixu7DnILkVsF%2B5AfSajw771WC0CwOCh2Pk04UpoqvUXcYG6QouRBlKrtId6XD0vMnRmIP6Lq6EF");
+  background-image: url("https://s3.amazonaws.com/mytopia-production/uploads/images/home_page.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: relative;
