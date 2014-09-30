@@ -1,17 +1,5 @@
 <div class="row">
   <h1><%= @neighborhood.name %></h1>
-  <!-- <table>
-    <tr>
-      <th>City</th>
-      <th>State</th>
-      <th>Zipcode</th>
-    </tr>
-    <tr>
-      <td> <%= @neighborhood.city %> </td>
-      <td> <%= @neighborhood.state %> </td>
-      <td> <%= @neighborhood.zipcode %> </td>
-    </tr>
-  </table> -->
 
   <h3> City: <%= @neighborhood.city %> </h3>
   <h3> State: <%= @neighborhood.state %> </h3>
@@ -66,6 +54,13 @@
       <p>
         <%= link_to review.title, neighborhood_review_path(@neighborhood, review), class: "btn info" %>
         <%= link_to review.user.username, user_path(review.user) %>
+
+        <% if review.upvoted?(current_user, review) %>
+        <%= link_to 'Downvote', neighborhood_review_downvote_path(@neighborhood, review), method: :post, class: "upvote" %>
+        <% else %>
+
+        <%= link_to 'Upvote', neighborhood_review_upvote_path(@neighborhood, review), method: :post, class: "upvote" %>
+        <% end %>
       </p>
 
       <% if review.owner?(current_user) %>

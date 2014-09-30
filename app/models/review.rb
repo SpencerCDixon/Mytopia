@@ -9,8 +9,18 @@ class Review < ActiveRecord::Base
   belongs_to :neighborhood
   belongs_to :user
   has_many :comments
+  has_many :votes
 
   def owner?(user)
     self.user == user
   end
+
+  def upvoted?(user, review)
+    Vote.where(user_id: user.id, review_id: review.id).first.score >= 1
+  end
+
+  def calculate_upvotes(review)
+    Votes.where(review_id: review.id).sum(:value)
+  end
+
 end
