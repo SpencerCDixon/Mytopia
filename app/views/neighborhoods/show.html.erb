@@ -1,17 +1,5 @@
 <div class="row">
   <h1><%= @neighborhood.name %></h1>
-  <!-- <table>
-    <tr>
-      <th>City</th>
-      <th>State</th>
-      <th>Zipcode</th>
-    </tr>
-    <tr>
-      <td> <%= @neighborhood.city %> </td>
-      <td> <%= @neighborhood.state %> </td>
-      <td> <%= @neighborhood.zipcode %> </td>
-    </tr>
-  </table> -->
   <% if current_user %>
     <% if @neighborhood.photo == nil %>
       <%= form_for @neighborhood do |f| %>
@@ -31,33 +19,30 @@
   <h3> State: <%= @neighborhood.state %> </h3>
   <h3> Zipcode: <%= @neighborhood.zipcode %> </h3>
 
-
   <h1>Review <%=@neighborhood.name %></h1>
 
-  <% if current_user %>
-    <%= form_for [@neighborhood, @review] do |f| %>
-      <% if @review.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@review.errors.count, "error") %> prohibited
-            this review from being saved:</h2>
-          <ul>
-            <% @review.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end%>
+<% if current_user %>
+  <%= form_for [@neighborhood, @review] do |f| %>
+    <% if @review.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@review.errors.count, "error") %> prohibited
+          this review from being saved:</h2>
+        <ul>
+          <% @review.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
       <p>
         <%= f.label :title  %><br>
         <%= f.text_field :title %>
       </p>
-
       <p>
         <%= f.label :body  %><br>
         <%= f.text_field :body %>
       </p>
-
       <p>
         <%= f.label :rating  %><br>
         <%= f.number_field :rating %>
@@ -65,13 +50,9 @@
 
       <%= f.submit 'Create Review', class: "button" %>
     <% end %>
-
   <% end %>
-
-
-
   <% if !current_user %>
-    <%= link_to 'If you want to leave a review, please sign in.', new_user_session_path, class: "button warning" %>
+    <%= link_to 'If you want to leave a review, please sign in.', new_user_session_path, class: "btn warning" %>
   <% end %>
 
   <% if @reviews %>
