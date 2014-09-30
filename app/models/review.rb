@@ -4,6 +4,7 @@ class Review < ActiveRecord::Base
   validates :user_id, presence: true
   validates :neighborhood_id, presence: true
   validates :upvotes, presence: true
+  validates :rating, presence: true, inclusion: { in: 1..10 }
 
   belongs_to :neighborhood
   belongs_to :user
