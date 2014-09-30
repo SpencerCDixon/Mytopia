@@ -2,6 +2,7 @@
 
   <aside class="large-4 columns user-sidebar">
     <img src=<%= @user.profile_photo%>>
+    <% if @user == current_user %>
     <%= form_for @user do |f| %>
     <p>
       <%= f.label :profile_photo %>
@@ -9,6 +10,7 @@
     </p>
 
     <%= f.submit "Update Photo", class: "button" %>
+    <% end %>
     <% end %>
 
     <h1><%= @user.username %></h1>

@@ -23,8 +23,19 @@ class NeighborhoodsController < ApplicationController
     end
   end
 
+  def update
+    @neighborhood = Neighborhood.find(params[:id])
+
+    if @neighborhood.update(neighborhood_params)
+      flash[:success] = "You have successfully updated the neighborhood picture."
+      redirect_to neighborhood_path(@neighborhood)
+    else
+      render "show"
+    end
+  end
+
   private
   def neighborhood_params
-    params.require(:neighborhood).permit(:city, :state, :zipcode, :name)
+    params.require(:neighborhood).permit(:city, :state, :zipcode, :name, :photo)
   end
 end

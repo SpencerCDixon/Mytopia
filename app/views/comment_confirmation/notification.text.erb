@@ -1,3 +1,1 @@
-CommentConfirmation#notification
-
-<%= @comment.body %>. find me in app/views/comment_confirmation/notification.text.erb
+<%= @comment.review.user.username %>, <%= @comment.user.username %> commented on <%= @comment.review.title %>: <%= @comment.body %>

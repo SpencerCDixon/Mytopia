@@ -43,6 +43,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'foundation-rails'
 gem "font-awesome-rails"
+gem 'mandrill-api'
 
 gem 'rails_12factor', group: :production
 gem "rubillow"
@@ -59,4 +60,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'email_spec'
   gem 'dotenv-rails'
+  gem 'kaminari'
 end

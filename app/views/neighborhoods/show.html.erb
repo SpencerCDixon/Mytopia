@@ -1,11 +1,25 @@
 <div class="row">
   <h1><%= @neighborhood.name %></h1>
+  <% if current_user %>
+    <% if @neighborhood.photo == nil %>
+      <%= form_for @neighborhood do |f| %>
+        <p>
+          <%= f.label :photo  %><br>
+          <%= f.file_field :photo %>
+        </p>
+
+        <%= f.submit 'Submit Photo', class: "button" %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <img src=<%= @neighborhood.photo%>>
 
   <h3> City: <%= @neighborhood.city %> </h3>
   <h3> State: <%= @neighborhood.state %> </h3>
   <h3> Zipcode: <%= @neighborhood.zipcode %> </h3>
 
-  <h1>Review <%=@neighborhood.city%></h1>
+  <h1>Review <%=@neighborhood.name %></h1>
 
 <% if current_user %>
   <%= form_for [@neighborhood, @review] do |f| %>
