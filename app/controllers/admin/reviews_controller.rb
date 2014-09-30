@@ -26,7 +26,7 @@ class Admin::ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @review.destroy
 
-    redirect_to admin_neighborhood_reviews_path, flash: { success: "Deleted review" }
+    redirect_to admin_neighborhood_path(@review.neighborhood), flash: { success: "Deleted review" }
   end
 
   private

@@ -1,26 +1,28 @@
-<h1>Edit <%= @neighborhood.name %></h1>
+<div class="row">
+  <h1>Edit <%= @neighborhood.name %></h1>
 
-<%= form_for [:admin, @neighborhood] do |f|  %>
+  <%= form_for [:admin, @neighborhood] do |f|  %>
 
-<p>
-  <%= f.label :city %><br>
-  <%= f.text_field :city %>
-</p>
+  <p>
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </p>
 
-<p>
-  <%= f.label :state %><br>
-  <%= f.text_field :state %>
-</p>
-<p>
-  <%= f.label :zipcode %><br>
-  <%= f.text_field :zipcode %>
-</p>
+  <p>
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </p>
+  <p>
+    <%= f.label :zipcode %><br>
+    <%= f.text_field :zipcode %>
+  </p>
 
-<p>
-  <%= f.label :name %><br>
-  <%= f.text_field :name %>
-</p>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
 
-  <%= f.submit "Update Neighborhood", class: "button" %>
+    <%= f.submit "Update Neighborhood", class: "button" %>
 
-<% end %>
+  <% end %>
+</div>

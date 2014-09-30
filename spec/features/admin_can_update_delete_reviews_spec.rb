@@ -8,7 +8,7 @@ feature "Admin can update or delete review" do
     review = FactoryGirl.create(:review)
 
     sign_in_as(admin)
-    visit admin_neighborhood_review_path(review.neighborhood, review)
+    visit admin_neighborhood_path(review.neighborhood)
 
     click_on "Edit"
     expect(page).to have_content("Edit #{review.title}")

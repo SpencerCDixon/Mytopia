@@ -1,7 +1,13 @@
-<h1><%= @neighborhood.name %></h1>
+<div class="row">
+  <h1><%= @neighborhood.name %></h1>
+
 
 <ul>
   <% @neighborhood.reviews.each do |review| %>
-    <li><%= link_to review.title, admin_neighborhood_review_path(review.neighborhood, review) %></li>
+    <li><%= link_to review.title, admin_neighborhood_review_path(review.neighborhood, review) %> <%= link_to "Edit", edit_admin_neighborhood_review_path(review.neighborhood, review) %>
+    <%= link_to "Delete", admin_neighborhood_review_path(review.neighborhood, review), method: :delete, data: {confirm: "Are you sure you want to delete this review?"} %><br><%= review.body %>
+    </li>
   <% end %>
 </ul>
+
+</div>
