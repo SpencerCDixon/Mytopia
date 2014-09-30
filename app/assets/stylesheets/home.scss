@@ -52,12 +52,24 @@ body {
 .featured {
   text-align: center;
   h1 {
-    color: #e08215;
-    margin-top: 20px;
+    color: rgb(60, 61, 62);
+    margin: 30px 0;
   }
 }
 
 .alert-box {
   margin-bottom: 0;
+}
 
+.about {
+  height: 400px;
+  h1 {
+    text-align: center;
+    color: #e08215;
+    margin: 30px 0;
+  }
+}
+
+.featured {
+  background-color: white;
 }

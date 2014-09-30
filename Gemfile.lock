@@ -96,6 +96,8 @@ GEM
     fog-softlayer (0.3.17)
       fog-core
       fog-json
+    font-awesome-rails (4.2.0.0)
+      railties (>= 3.2, < 5.0)
     formatador (0.2.5)
     foundation-rails (5.4.3.1)
       railties (>= 3.1.0)
@@ -230,6 +232,7 @@ DEPENDENCIES
   email_spec
   factory_girl_rails
   fog
+  font-awesome-rails
   foundation-rails
   jbuilder (~> 2.0)
   jquery-rails
