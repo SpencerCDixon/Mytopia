@@ -34,7 +34,7 @@
 
       <p>
         <%= f.label :rating  %><br>
-        <%= f.number_field :rating %>
+        <%= f.select :rating, 1..10 %>
       </p>
 
       <%= f.submit 'Create Review', class: "button" %>
@@ -61,6 +61,8 @@
 
         <%= link_to 'Upvote', neighborhood_review_upvote_path(@neighborhood, review), method: :post, class: "upvote" %>
         <% end %>
+
+        <%= review.calculate_upvotes(review) %>
       </p>
 
       <% if review.owner?(current_user) %>

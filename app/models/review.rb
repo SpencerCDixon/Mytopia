@@ -20,7 +20,7 @@ class Review < ActiveRecord::Base
   end
 
   def calculate_upvotes(review)
-    Votes.where(review_id: review.id).sum(:value)
+    Vote.where(review_id: review.id).sum(:score)
   end
 
 end
