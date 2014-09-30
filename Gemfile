@@ -42,6 +42,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'fog'
 gem 'foundation-rails'
+gem "font-awesome-rails"
 
 gem 'rails_12factor', group: :production
 gem "rubillow"

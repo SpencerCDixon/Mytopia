@@ -1,70 +1,72 @@
-<h1><%= @neighborhood.name %></h1>
-<!-- <table>
-  <tr>
-    <th>City</th>
-    <th>State</th>
-    <th>Zipcode</th>
-  </tr>
-  <tr>
-    <td> <%= @neighborhood.city %> </td>
-    <td> <%= @neighborhood.state %> </td>
-    <td> <%= @neighborhood.zipcode %> </td>
-  </tr>
-</table> -->
+<div class="row">
+  <h1><%= @neighborhood.name %></h1>
+  <!-- <table>
+    <tr>
+      <th>City</th>
+      <th>State</th>
+      <th>Zipcode</th>
+    </tr>
+    <tr>
+      <td> <%= @neighborhood.city %> </td>
+      <td> <%= @neighborhood.state %> </td>
+      <td> <%= @neighborhood.zipcode %> </td>
+    </tr>
+  </table> -->
 
-<h3> City: <%= @neighborhood.city %> </h3>
-<h3> State: <%= @neighborhood.state %> </h3>
-<h3> Zipcode: <%= @neighborhood.zipcode %> </h3>
+  <h3> City: <%= @neighborhood.city %> </h3>
+  <h3> State: <%= @neighborhood.state %> </h3>
+  <h3> Zipcode: <%= @neighborhood.zipcode %> </h3>
 
 
-<h1>Review <%=@neighborhood.city%></h1>
+  <h1>Review <%=@neighborhood.city%></h1>
 
-<% if current_user %>
-  <%= form_for [@neighborhood, @review] do |f| %>
-    <% if @review.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@review.errors.count, "error") %> prohibited
-          this review from being saved:</h2>
-        <ul>
-          <% @review.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end%>
+  <% if current_user %>
+    <%= form_for [@neighborhood, @review] do |f| %>
+      <% if @review.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@review.errors.count, "error") %> prohibited
+            this review from being saved:</h2>
+          <ul>
+            <% @review.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end%>
 
-    <p>
-      <%= f.label :title  %><br>
-      <%= f.text_field :title %>
-    </p>
+      <p>
+        <%= f.label :title  %><br>
+        <%= f.text_field :title %>
+      </p>
 
-    <p>
-      <%= f.label :body  %><br>
-      <%= f.text_field :body %>
-    </p>
+      <p>
+        <%= f.label :body  %><br>
+        <%= f.text_field :body %>
+      </p>
 
-    <%= f.submit 'Create Review', class: "button" %>
+      <%= f.submit 'Create Review', class: "button" %>
+    <% end %>
+
   <% end %>
 
-<% end %>
 
 
+  <% if !current_user %>
+    <%= link_to 'If you want to leave a review, please sign in.', new_user_session_path, class: "btn warning" %>
+  <% end %>
 
-<% if !current_user %>
-  <%= link_to 'If you want to leave a review, please sign in.', new_user_session_path, class: "btn warning" %>
-<% end %>
+  <% if @reviews %>
+  <h1> All Reviews For <%= @neighborhood.name %> </h1>
+    <% @reviews.each do |review| %>
+      <p>
+        <%= link_to review.title, neighborhood_review_path(@neighborhood, review), class: "btn info" %>
+        <%= link_to review.user.username, user_path(review.user) %>
+      </p>
 
-<% if @reviews %>
-<h1> All Reviews For <%= @neighborhood.name %> </h1>
-  <% @reviews.each do |review| %>
-    <p>
-      <%= link_to review.title, neighborhood_review_path(@neighborhood, review), class: "btn info" %>
-      <%= link_to review.user.username, user_path(review.user) %>
-    </p>
-
-    <% if review.owner?(current_user) %>
-      <%= link_to 'Edit', edit_neighborhood_review_path(@neighborhood, review) %>
-      <%= link_to 'Delete', neighborhood_review_path(@neighborhood, review), method: :delete, data: {confirm: 'Are you sure you want to delete review?'} %></p>
+      <% if review.owner?(current_user) %>
+        <%= link_to 'Edit', edit_neighborhood_review_path(@neighborhood, review) %>
+        <%= link_to 'Delete', neighborhood_review_path(@neighborhood, review), method: :delete, data: {confirm: 'Are you sure you want to delete review?'} %></p>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
+</div>
