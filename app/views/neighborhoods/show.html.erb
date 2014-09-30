@@ -31,7 +31,7 @@
           <% end %>
         </ul>
       </div>
-    <% end%>
+    <% end %>
 
     <p>
       <%= f.label :title  %><br>
@@ -45,10 +45,7 @@
 
     <%= f.submit 'Create Review', class: "button" %>
   <% end %>
-
 <% end %>
-
-
 
 <% if !current_user %>
   <%= link_to 'If you want to leave a review, please sign in.', new_user_session_path, class: "btn warning" %>

@@ -6,9 +6,9 @@
   <%= @user.email %>
 <% end %>
 
+<h2><%= "#{@user.username}'s Reviews"%></h2><br>
+<ol>
 <% @user.reviews.each do |review| %>
-  <h2><%= "#{@user.username}'s Reviews"%></h2><br>
-  <ol>
     <li>
     <%= link_to review.title, neighborhood_review_path(review.neighborhood, review) %><%= " - Upvotes: #{review.upvotes}"  %>
     <% if review.owner?(current_user) %>
@@ -18,8 +18,8 @@
     <p><%= review.updated_at %></p>
     <p><%= review.body %></p>
   </li>
-  </ol>
 <% end %>
+</ol>
 
 
 <div class="row" style="margin-top: 10px;">
