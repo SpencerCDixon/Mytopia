@@ -1,5 +1,1 @@
-<h1>CommentConfirmation#notification</h1>
-
-<p>
-  <%= @comment.body %>
-</p>
+<%= @comment.review.user.username %>, <%= @comment.user.username %> commented on your review, <%= @comment.review.title %>: <%= @comment.body %>

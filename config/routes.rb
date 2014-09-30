@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'welcome#index'
-  resources :neighborhoods, except: [:destroy, :update] do
+  resources :neighborhoods, except: [:destroy] do
     resources :reviews, except: [:index] do
       resources :comments, except: [:index, :show]
     end
