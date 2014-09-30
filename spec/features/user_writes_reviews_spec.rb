@@ -18,7 +18,7 @@ feature "authenticated user can write reviews" do
 
     fill_in('Title', with: review.title)
     fill_in('Body', with: review.body)
-    fill_in('Rating', with: review.rating)
+    select('1', from: 'Rating')
 
     click_on 'Create Review'
 

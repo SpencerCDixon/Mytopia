@@ -15,8 +15,8 @@ class Review < ActiveRecord::Base
     self.user == user
   end
 
-  def upvoted?(user, review)
-    Vote.where(user_id: user.id, review_id: review.id).first.score >= 1
+  def upvoted?(user)
+    votes.where(user_id: user.id, score: 1).count >= 1
   end
 
   def calculate_upvotes(review)

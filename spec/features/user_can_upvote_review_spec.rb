@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 feature 'A user can upvote a review' do
 
   scenario 'user can upvote a review' do
@@ -9,7 +11,7 @@ feature 'A user can upvote a review' do
 
     click_on 'Upvote'
 
-    expect(page).to have_content('Upvotes: 1')
+    expect(page).to have_content('1')
   end
 
 end

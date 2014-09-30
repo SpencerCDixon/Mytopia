@@ -52,23 +52,25 @@
   <h1> All Reviews For <%= @neighborhood.name %> </h1>
     <% @reviews.each do |review| %>
       <p>
-        <%= link_to review.title, neighborhood_review_path(@neighborhood, review), class: "btn info" %>
-        <%= link_to review.user.username, user_path(review.user) %>
+        Review Title: <%= link_to review.title, neighborhood_review_path(@neighborhood, review), class: "btn info" %>
+        Review Author: <%= link_to review.user.username, user_path(review.user) %>
 
-        <% if review.upvoted?(current_user, review) %>
-        <%= link_to 'Downvote', neighborhood_review_downvote_path(@neighborhood, review), method: :post, class: "upvote" %>
+        <% if review.owner?(current_user) %>
+          <%= link_to 'Edit', edit_neighborhood_review_path(@neighborhood, review) %>
+          <%= link_to 'Delete', neighborhood_review_path(@neighborhood, review), method: :delete, data: {confirm: 'Are you sure you want to delete review?'} %>
+        <% end %>
+
+        <% if review.upvoted?(current_user) %>
+          <%= link_to 'Downvote', neighborhood_review_downvote_path(@neighborhood, review), method: :post, class: "upvote" %>
         <% else %>
 
-        <%= link_to 'Upvote', neighborhood_review_upvote_path(@neighborhood, review), method: :post, class: "upvote" %>
+          <%= link_to 'Upvote', neighborhood_review_upvote_path(@neighborhood, review), method: :post, class: "upvote" %>
         <% end %>
 
         <%= review.calculate_upvotes(review) %>
       </p>
 
-      <% if review.owner?(current_user) %>
-        <%= link_to 'Edit', edit_neighborhood_review_path(@neighborhood, review) %>
-        <%= link_to 'Delete', neighborhood_review_path(@neighborhood, review), method: :delete, data: {confirm: 'Are you sure you want to delete review?'} %></p>
-      <% end %>
+
     <% end %>
   <% end %>
 </div>
