@@ -9,7 +9,7 @@ feature "Authenticated user can comment on reviews" do
     visit neighborhood_review_path( review.neighborhood, review )
 
     comment = FactoryGirl.build(:comment)
-    fill_in('Body', with: comment.body)
+    fill_in("Leave a Comment!", with: comment.body)
 
     click_on 'Create Comment'
 

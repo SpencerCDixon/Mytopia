@@ -2,7 +2,7 @@
   width: 100%; }
 
 .dream-home {
-  background-image: url("home_page.jpg");
+  background-image: url("https://s3.amazonaws.com/mytopia-production/uploads/images/home_page.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: relative;
