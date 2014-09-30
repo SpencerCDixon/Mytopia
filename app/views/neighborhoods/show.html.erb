@@ -44,6 +44,11 @@
         <%= f.text_field :body %>
       </p>
 
+      <p>
+        <%= f.label :rating  %><br>
+        <%= f.number_field :rating %>
+      </p>
+
       <%= f.submit 'Create Review', class: "button" %>
     <% end %>
 
