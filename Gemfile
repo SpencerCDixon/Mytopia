@@ -47,6 +47,8 @@ gem 'mandrill-api'
 
 gem 'rails_12factor', group: :production
 gem "rubillow"
+gem 'kaminari'
+
 
 group :development, :test do
   gem 'valid_attribute'

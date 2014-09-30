@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140930164901) do
     t.integer  "upvotes",         default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "rating"
   end
 
   create_table "users", force: true do |t|

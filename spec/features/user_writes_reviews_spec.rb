@@ -18,6 +18,7 @@ feature "authenticated user can write reviews" do
 
     fill_in('Title', with: review.title)
     fill_in('Body', with: review.body)
+    fill_in('Rating', with: review.rating)
 
     click_on 'Create Review'
 
@@ -54,6 +55,3 @@ feature "authenticated user can write reviews" do
     expect(page).to have_content('If you want to leave a review, please sign in.')
   end
 end
-
-
-
