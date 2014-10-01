@@ -6,6 +6,7 @@ class NeighborhoodPhotosController < ApplicationController
     @neighborhood_photo.neighborhood_id = @neighborhood.id
 
     if @neighborhood_photo.save
+      flash[:success] = "You have successfully submitted a picture of the neighborhood."
       redirect_to neighborhood_path(@neighborhood)
     else
       render 'neighborhoods/show'

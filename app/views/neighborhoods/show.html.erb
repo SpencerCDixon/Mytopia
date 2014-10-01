@@ -4,8 +4,8 @@
     <% if photo.featured == true %>
       <%= image_tag photo.photo.url %>
     <% end %>
-  <% end %>
-  <%= link_to 'More photos', neighborhood_neighborhood_photo_path(@neighborhood, @neighborhood.neighborhood_photos) %>
+  <% end %><br>
+  <%= link_to "More photos of #{@neighborhood.name}", neighborhood_neighborhood_photo_path(@neighborhood, @neighborhood.neighborhood_photos) %>
 
   <% if current_user %>
     <%= form_for [@neighborhood, @neighborhood_photo] do |f| %>
@@ -55,6 +55,7 @@
       <%= f.submit 'Create Review', class: "button" %>
     <% end %>
   <% end %>
+
   <% if !current_user %>
     <%= link_to 'If you want to leave a review, please sign in.', new_user_session_path, class: "btn warning" %>
   <% end %>

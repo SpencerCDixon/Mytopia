@@ -13,6 +13,7 @@ class ReviewsController < ApplicationController
       flash[:success] = "You have successfully created a review."
       redirect_to @neighborhood
     else
+      @neighborhood_photo = NeighborhoodPhoto.new
       render 'neighborhoods/show'
     end
   end
