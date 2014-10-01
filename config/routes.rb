@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   resources :neighborhoods, except: [:destroy] do
+    resources :neighborhood_photos, except: [:destroy]
     resources :reviews, except: [:index] do
       resources :comments, except: [:index, :show]
       post 'upvote', to: "reviews#upvote"

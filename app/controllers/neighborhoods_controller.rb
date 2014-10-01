@@ -7,6 +7,7 @@ class NeighborhoodsController < ApplicationController
     @neighborhood = Neighborhood.find(params[:id])
     @review = Review.new
     @reviews = @neighborhood.reviews
+    @neighborhood_photo = NeighborhoodPhoto.new
   end
 
   def new

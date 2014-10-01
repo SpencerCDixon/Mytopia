@@ -4,6 +4,7 @@ class Neighborhood < ActiveRecord::Base
   validates :zipcode, presence: true
 
   has_many :reviews
+  has_many :neighborhood_photos
 
   mount_uploader :photo, NeighborhoodPhotoUploader
 

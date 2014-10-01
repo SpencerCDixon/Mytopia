@@ -1,8 +1,8 @@
 <div class="row">
   <h1><%= @neighborhood.name %></h1>
   <% if current_user %>
-    <% if @neighborhood.photo_url == nil %>
-      <%= form_for @neighborhood do |f| %>
+    <% if @neighborhood_photo.photo == nil %>
+      <%= form_for @neighborhood_photo do |f| %>
         <p>
           <%= f.label :photo  %><br>
           <%= f.file_field :photo %>
@@ -13,7 +13,6 @@
     <% end %>
   <% end %>
 
-  <%= image_tag @neighborhood.photo.url %>
 
   <h3> City: <%= @neighborhood.city %> </h3>
   <h3> State: <%= @neighborhood.state %> </h3>
