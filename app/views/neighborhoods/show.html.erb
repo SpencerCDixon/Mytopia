@@ -70,7 +70,9 @@
 
               <%= link_to 'Upvote', neighborhood_review_upvote_path(@neighborhood, review), method: :post, class: "upvote button alert tiny" %>
             <% end %>
+
           </article>
+
         <% end %>
       <% end %>
     </div>
@@ -110,7 +112,7 @@
       <% end %>
 
       <% if !current_user %>
-        <%= link_to 'If you want to leave a review, please sign in.', new_user_session_path, class: "button alert center" %>
+        <%= link_to 'If you want to leave a review, please log in.', new_user_session_path, class: "button alert center" %>
       <% end %>
     </div>
   </div>
