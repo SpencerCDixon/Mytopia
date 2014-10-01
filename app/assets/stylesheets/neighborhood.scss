@@ -35,10 +35,20 @@
   margin-top: 20px;
 }
 
-.upvote {
+.upvote, .edit, .delete, .downvote {
   float: right;
+  margin-top: 1em;
+  margin-left: .5em;
 }
 
 .edit {
-  flaot: right;
+  background-color: #f1c40f !important;
+}
+
+.delete {
+  background-color: #c0392b !important;
+}
+
+.review-body {
+
 }
