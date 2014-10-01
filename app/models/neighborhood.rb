@@ -15,9 +15,11 @@ class Neighborhood < ActiveRecord::Base
     end
   end
 
-  def calculate_rating(neighborhood)
-    Review.where(neighborhood_id: neighborhood.id).sum(:rating)*10/Review.where(neighborhood_id:neighborhood.id).count
-
-
+  def calculate_rating
+    if Review.where(neighborhood_id: self.id).count > 0
+      Review.where(neighborhood_id: self.id).sum(:rating) * 10 / Review.where(neighborhood_id: self.id).count
+    else
+      0
+    end
   end
 end
