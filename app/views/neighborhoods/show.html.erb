@@ -61,7 +61,7 @@
             <%= review.body %>
 
             <% if review.owner?(current_user) %>
-              <%= link_to 'Edit', edit_neighborhood_review_path(@neighborhood, review), class: "button tiny  edit" %>
+              <%= link_to 'Edit', edit_neighborhood_review_path(@neighborhood, review), class: "button tiny edit" %>
               <%= link_to 'Delete', neighborhood_review_path(@neighborhood, review), method: :delete, data: {confirm: 'Are you sure you want to delete review?'}, class: "button tiny delete" %>
             <% end %>
 

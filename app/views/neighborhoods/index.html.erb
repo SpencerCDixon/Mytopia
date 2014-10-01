@@ -7,19 +7,17 @@
         <%= text_field_tag :search, params[:search] %>
       </div>
       <div class="small-2 columns">
-        <!-- <%= submit_tag "&#xf043; Search", :name => nil, class: "button postfix fa-input" %> -->
         <button id="search-button" class='button postfix'>
           <%= fa_icon("search") %>
         </button>
       </div>
     </div>
-
   <% end %>
 
   <h1> Neighborhoods </h1>
   <ul>
     <% @neighborhoods.each do |n| %>
-      <li> <%= link_to n.name, neighborhood_path(n), class: "btn default" %> </li>
+      <li> <%= link_to n.name, neighborhood_path(n) %> - <%= n.calculate_rating %>% </li>
     <% end %>
   </ul>
 

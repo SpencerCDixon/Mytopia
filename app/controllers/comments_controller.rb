@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     @comment.review_id = params[:review_id]
     if @comment.save
       CommentConfirmation.notification(@comment, @comment.review.user).deliver
-      flash[:notice] = "You have successfully posted your comment."
+      flash[:success] = "You have successfully posted your comment."
       redirect_to neighborhood_review_path(@review.neighborhood, @review)
     else
       render 'reviews/show'
