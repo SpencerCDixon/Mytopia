@@ -1,0 +1,6 @@
+Photos of <%= @neighborhood.name %>
+<ol>
+  <% @neighborhood.neighborhood_photos.each do |photo|%>
+    <li><%= image_tag photo.photo.url %></li>
+  <% end %>
+</ol> 

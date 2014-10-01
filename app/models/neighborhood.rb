@@ -6,8 +6,6 @@ class Neighborhood < ActiveRecord::Base
   has_many :reviews
   has_many :neighborhood_photos
 
-  mount_uploader :photo, NeighborhoodPhotoUploader
-
   def self.search(search)
     if search.present?
       where("name ilike :q or city ilike :q or state ilike :q", q: "%#{search}%")

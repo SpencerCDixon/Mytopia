@@ -1,15 +1,20 @@
 <div class="row">
   <h1><%= @neighborhood.name %></h1>
-  <% if current_user %>
-    <% if @neighborhood_photo.photo == nil %>
-      <%= form_for @neighborhood_photo do |f| %>
-        <p>
-          <%= f.label :photo  %><br>
-          <%= f.file_field :photo %>
-        </p>
+  <% @neighborhood.neighborhood_photos.each do |photo| %>
+    <% if photo.featured == true %>
+      <%= image_tag photo.photo.url %>
+    <% end %>
+  <% end %>
+  <%= link_to 'More photos', neighborhood_neighborhood_photo_path(@neighborhood, @neighborhood.neighborhood_photos) %>
 
-        <%= f.submit 'Submit Photo', class: "button" %>
-      <% end %>
+  <% if current_user %>
+    <%= form_for [@neighborhood, @neighborhood_photo] do |f| %>
+      <p>
+        <%= f.label :photo  %><br>
+        <%= f.file_field :photo %>
+      </p>
+
+      <%= f.submit 'Submit Photo', class: "button" %>
     <% end %>
   <% end %>
 
