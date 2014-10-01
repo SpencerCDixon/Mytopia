@@ -16,21 +16,7 @@
   margin-right: 100px;
   margin-bottom: 0; }
 
-hr {
-  height: 10px;
-}
-
-.review-body {
-  /* margin-bottom: 20px; */
-}
-
-.th {
-  width: 100%;
-  height: auto;
-}
-
-.comment-body {
-  font-family: "Monospace", Lucida;
-  font-size: 16px;
-  margin-bottom: 10px;
-}
+.information {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px; }

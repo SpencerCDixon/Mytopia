@@ -24,14 +24,7 @@
   text-align: center; }
 
 body {
-  background-color: #4251b8;
-  background-image: -moz-linear-gradient(#abc7fa, #4251b8);
-  background-image: -o-linear-gradient(#abc7fa, #4251b8);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #abc7fa), color-stop(1, #4251b8));
-  background-image: -webkit-linear-gradient(#abc7fa, #4251b8);
-  background-image: ms-linear-gradient(#abc7fa, #4251b8);
-  background-image: linear-gradient(#abc7fa, #4251b8);
-  background-repeat: no-repeat; }
+  background: url("https://s3.amazonaws.com/mytopia-production/uploads/images/congruent_outline.png"); }
 
 .featured {
   text-align: center; }
@@ -43,7 +36,8 @@ body {
   margin-bottom: 0; }
 
 .about {
-  height: 400px; }
+  background-color: #4251b8;
+  height: auto; }
   .about h1 {
     text-align: center;
     color: #e08215;
