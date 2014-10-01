@@ -10,7 +10,7 @@ feature "Reviewer receives email when their review is commented on" do
 
     visit neighborhood_review_path(comment.review.neighborhood, comment.review)
 
-    fill_in 'Body', with: comment.body
+    fill_in("Leave a Comment!", with: comment.body)
 
     click_on "Create Comment"
 

@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20140930173952) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "county"
+    t.string   "photo"
+    t.boolean  "feature"
   end
 
   create_table "reviews", force: true do |t|
