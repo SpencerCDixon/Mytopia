@@ -7,6 +7,8 @@ require 'capybara/rails'
 require 'factory_girl'
 require 'valid_attribute'
 require 'email_spec'
+require 'coveralls'
+Coveralls.wear!('rails')
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
