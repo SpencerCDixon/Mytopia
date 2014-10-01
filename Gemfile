@@ -48,7 +48,9 @@ gem 'mandrill-api'
 gem 'rails_12factor', group: :production
 gem "rubillow"
 gem 'kaminari'
-gem 'coveralls', require: false, group: :test
+group :test do
+  gem 'coveralls', require: false
+end
 
 
 group :development, :test do
@@ -61,5 +63,4 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'email_spec'
   gem 'dotenv-rails'
-  gem 'kaminari'
 end
