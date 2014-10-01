@@ -31,7 +31,7 @@ feature "Authenticated user can comment on reviews" do
 
     visit neighborhood_review_path( review.neighborhood, review )
 
-    expect(page).to have_link('Log In to comment')
+    expect(page).to have_link('Log in to comment')
 
   end
 
@@ -40,9 +40,9 @@ feature "Authenticated user can comment on reviews" do
 
     visit neighborhood_review_path( review.neighborhood, review )
 
-    expect(page).to have_link('Log In to comment')
+    expect(page).to have_link('Log in to comment')
 
-    click_on 'Log In to comment'
+    click_on 'Log in to comment'
 
     expect(page).to  have_content("Log in")
   end

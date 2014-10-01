@@ -52,6 +52,6 @@ feature "authenticated user can write reviews" do
 
     visit neighborhood_path(neighborhood)
 
-    expect(page).to have_content('If you want to leave a review, please Log In.')
+    expect(page).to have_content('If you want to leave a review, please log in.')
   end
 end
