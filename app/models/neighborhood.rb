@@ -4,8 +4,7 @@ class Neighborhood < ActiveRecord::Base
   validates :zipcode, presence: true
 
   has_many :reviews
-
-  mount_uploader :photo, NeighborhoodPhotoUploader
+  has_many :neighborhood_photos
 
   def self.search(search)
     if search.present?

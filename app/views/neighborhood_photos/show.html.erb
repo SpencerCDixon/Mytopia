@@ -1,0 +1,8 @@
+Photos of <%= @neighborhood.name %>
+<ol>
+  <% @neighborhood.neighborhood_photos.each do |photo|%>
+    <li><%= image_tag photo.photo.url %></li>
+  <% end %>
+</ol>
+
+<!-- We have to make this so only approved photos can beseen just did without so that I could see that it is working   -->
