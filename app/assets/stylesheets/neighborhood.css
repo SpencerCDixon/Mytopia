@@ -2,10 +2,29 @@
   width: 400px;
   margin-top: 200px; }
 
-.write h3 {
+.write h2 {
   text-align: center;
   margin-top: 50px; }
 
 .center {
   display: block;
   margin: 0 auto; }
+
+.reviews h2 {
+  text-align: center;
+  margin-top: 50px; }
+
+.title h3 {
+  margin-top: .7em; }
+.title p {
+  margin-left: 20px;
+  font-size: .75em; }
+
+.progress {
+  margin-top: 20px; }
+
+.upvote {
+  float: right; }
+
+.edit {
+  flaot: right; }
