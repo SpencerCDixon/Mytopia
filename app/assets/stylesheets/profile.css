@@ -1,0 +1,9 @@
+.profile-image-form {
+  text-align: center; }
+  .profile-image-form input {
+    margin: 0 auto;
+    text-align: center; }
+
+.profile-image {
+  display: block;
+  margin: 20px auto; }

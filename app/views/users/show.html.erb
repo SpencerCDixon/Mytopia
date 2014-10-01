@@ -2,20 +2,19 @@
 
   <aside class="large-4 columns user-sidebar">
     <% if !@user.profile_photo.url.nil? %>
-      <%= image_tag @user.profile_photo %>
+      <%= image_tag @user.profile_photo, class: "profile-image" %>
     <% else %>
-      <%= image_tag 'https://s3.amazonaws.com/mytopia-production/uploads/images/default-user-large.png' %>
+      <%= image_tag 'https://s3.amazonaws.com/mytopia-production/uploads/images/default-user-large.png', class: "profile-image" %>
     <% end %>
 
     <% if @user == current_user %>
-    <%= form_for @user do |f| %>
-    <p>
-      <%= f.label :profile_photo %>
-      <%= f.file_field :profile_photo %>
-    </p>
-
-    <%= f.submit "Update Photo", class: "button" %>
-    <% end %>
+      <%= form_for @user, html: { class: "profile-image-form" } do |f| %>
+        <p>
+          <%= f.label :profile_photo %>
+          <%= f.file_field :profile_photo %>
+        </p>
+        <%= f.submit "Update Photo", class: "button" %>
+      <% end %>
     <% end %>
 
     <h1><%= @user.username %></h1>
