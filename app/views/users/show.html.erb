@@ -17,32 +17,40 @@
       <% end %>
     <% end %>
 
-    <h1><%= @user.username %></h1>
+    <!-- Don't know why this was in here -->
+    <!-- <h1><%= @user.username %></h1>
     <% if @user == current_user %>
     <%= @user.email %>
-    <% end %>
+    <% end %> -->
   </aside>
 
   <section class="large-8 columns user-reviews">
-    <h2><%= "#{@user.username}'s Reviews"%></h2>
+    <h2><%= "#{@user.username.capitalize}'s Reviews"%></h2>
+
     <% @user.reviews.each do |review| %>
     <ul>
       <li>
-        <h3><a href="#">  <%= link_to review.title, neighborhood_review_path(review.neighborhood, review) %> </a>
-          <% if review.owner?(current_user) %>
+        <h3>
+          <%= link_to review.title, neighborhood_review_path(review.neighborhood, review) %>
+        </h3>
+
+        <% if review.owner?(current_user) %>
           <%= link_to 'Edit', edit_neighborhood_review_path(review.neighborhood, review) %>
-          <%= link_to 'Delete', neighborhood_review_path(review.neighborhood, review), method: :delete, data: {confirm: 'Are you sure you want to delete review?'} %></h3>
+          <%= link_to 'Delete', neighborhood_review_path(review.neighborhood, review), method: :delete, data: {confirm: 'Are you sure you want to delete review?'} %>
          <% end %>
         <p>
-          <%= review.updated_at %>
+          <%= distance_of_time_in_words_to_now(review.updated_at) %> ago
         </p>
         <p>
           <%= review.body %>
        </p>
       </li>
+
       <li>
-      <%= link_to " #{review.comments.count} Comments", neighborhood_review_path(review.neighborhood, review) %>
-        <button class="button tiny vote alert"> <%= "Upvotes: #{review.upvotes}"  %> </button>
+      <%= link_to "#{review.comments.count} Comments", neighborhood_review_path(review.neighborhood, review) %>
+        <button class="button tiny vote alert">
+          Upvotes: <%= review.calculate_upvotes(review) %>
+        </button>
       </li>
     </ul>
     <% end %>
