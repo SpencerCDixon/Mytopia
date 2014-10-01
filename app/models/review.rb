@@ -16,7 +16,11 @@ class Review < ActiveRecord::Base
   end
 
   def upvoted?(user)
-    votes.where(user_id: user.id, score: 1).count >= 1
+    if user.nil?
+      false
+    else
+      votes.where(user_id: user.id, score: 1).count >= 1
+    end
   end
 
   def calculate_upvotes(review)
