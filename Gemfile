@@ -47,6 +47,7 @@ gem "font-awesome-rails"
 gem 'rails_12factor', group: :production
 gem "rubillow"
 gem 'kaminari'
+gem 'coveralls', require: false, group: :test
 
 
 group :development, :test do
