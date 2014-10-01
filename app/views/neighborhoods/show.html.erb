@@ -1,5 +1,5 @@
-<div class="row">
-  <h1><%= @neighborhood.name %></h1>
+<div class="row information">
+  <h1 style="text-align: center;"><%= @neighborhood.name %></h1>
   <% if current_user %>
     <% if @neighborhood.photo_url == nil %>
       <%= form_for @neighborhood do |f| %>
@@ -13,71 +13,114 @@
     <% end %>
   <% end %>
 
-  <%= image_tag @neighborhood.photo.url %>
-
-  <h3> City: <%= @neighborhood.city %> </h3>
-  <h3> State: <%= @neighborhood.state %> </h3>
-  <h3> Zipcode: <%= @neighborhood.zipcode %> </h3>
-
-  <h1>Review <%=@neighborhood.name %></h1>
-
-<% if current_user %>
-  <%= form_for [@neighborhood, @review] do |f| %>
-    <% if @review.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@review.errors.count, "error") %> prohibited
-          this review from being saved:</h2>
-        <ul>
-          <% @review.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
+  <div class="row">
+    <div class="large-4 columns">
+      <%= image_tag @neighborhood.photo.url %>
+      <div class="progress small alert">
+        <span class="meter" style="width: 70%"></span>
       </div>
-    <% end %>
+    </div>
 
-      <p>
-        <%= f.label :title  %><br>
-        <%= f.text_field :title %>
-      </p>
-      <p>
-        <%= f.label :body  %><br>
-        <%= f.text_field :body %>
-      </p>
-      <p>
-        <%= f.label :rating  %><br>
-        <%= f.select :rating, 1..10 %>
-      </p>
+    <div class="large-8 columns">
+      <table>
+        <tr>
+          <td width="150"> City: </td>
+          <td> <%= @neighborhood.city %> </td>
+        </tr>
+        <tr>
+          <td> State: </td>
+          <td>  <%= @neighborhood.state %>  </td>
+        </tr>
+        <tr>
+          <td> Zipcode: </td>
+          <td> <%= @neighborhood.zipcode %> </td>
+        </tr>
+      </table>
+    </div>
+  </div>
 
-      <%= f.submit 'Create Review', class: "button" %>
-    <% end %>
-  <% end %>
-  <% if !current_user %>
-    <%= link_to 'If you want to leave a review, please sign in.', new_user_session_path, class: "btn warning" %>
-  <% end %>
+  <div class="row">
+    <div class="large-offset-1 large-10 columns reviews">
+      <% if @reviews %>
+      <h2> All Reviews For <%= @neighborhood.name %> </h2>
+        <% @reviews.each do |review| %>
+          <div class="title">
+            <h3>
+              <button class="tiny">
+                <%= review.calculate_upvotes(review) %> Upvotes
+              </button>
 
-  <% if @reviews %>
-  <h1> All Reviews For <%= @neighborhood.name %> </h1>
-    <% @reviews.each do |review| %>
-      <p>
-        Review Title: <%= link_to review.title, neighborhood_review_path(@neighborhood, review), class: "btn info" %>
-        Review Author: <%= link_to review.user.username, user_path(review.user) %>
+              <%= link_to review.title, neighborhood_review_path(@neighborhood, review), class: "btn info" %>
+            </h3>
+            <p>
+              <em>Written by: <%= link_to review.user.username, user_path(review.user) %></em>
+            </p>
+          </div>
 
-        <% if review.owner?(current_user) %>
-          <%= link_to 'Edit', edit_neighborhood_review_path(@neighborhood, review) %>
-          <%= link_to 'Delete', neighborhood_review_path(@neighborhood, review), method: :delete, data: {confirm: 'Are you sure you want to delete review?'} %>
+          <article>
+            <%= review.body %>
+
+          </article>
+
+            <% if review.owner?(current_user) %>
+              <%= link_to 'Edit', edit_neighborhood_review_path(@neighborhood, review), class: "button tiny alert edit" %>
+              <%= link_to 'Delete', neighborhood_review_path(@neighborhood, review), method: :delete, data: {confirm: 'Are you sure you want to delete review?'} %>
+            <% end %>
+
+            <% if review.upvoted?(current_user) %>
+              <%= link_to 'Downvote', neighborhood_review_downvote_path(@neighborhood, review), method: :post, class: "downvote button primary tiny" %>
+            <% else %>
+
+              <%= link_to 'Upvote', neighborhood_review_upvote_path(@neighborhood, review), method: :post, class: "upvote button alert tiny" %>
+            <% end %>
+
+
+
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-offset-1 large-10 columns write">
+    <h2>Write A Review For <%=@neighborhood.name %></h2>
+
+    <% if current_user %>
+      <%= form_for [@neighborhood, @review] do |f| %>
+        <% if @review.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@review.errors.count, "error") %> prohibited
+              this review from being saved:</h2>
+            <ul>
+              <% @review.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
 
-        <% if review.upvoted?(current_user) %>
-          <%= link_to 'Downvote', neighborhood_review_downvote_path(@neighborhood, review), method: :post, class: "upvote" %>
-        <% else %>
+          <p>
+            <%= f.label :title  %><br>
+            <%= f.text_field :title %>
+          </p>
+          <p>
+            <%= f.label :body  %><br>
+            <%= f.text_field :body %>
+          </p>
+          <p>
+            <%= f.label :rating  %><br>
+            <%= f.select :rating, 1..10 %>
+          </p>
 
-          <%= link_to 'Upvote', neighborhood_review_upvote_path(@neighborhood, review), method: :post, class: "upvote" %>
+          <%= f.submit 'Create Review', class: "button" %>
         <% end %>
+      <% end %>
 
-        <%= review.calculate_upvotes(review) %>
-      </p>
+      <% if !current_user %>
+        <%= link_to 'If you want to leave a review, please sign in.', new_user_session_path, class: "button alert center" %>
+      <% end %>
 
-
-    <% end %>
-  <% end %>
+    </div>
+  </div>
 </div>

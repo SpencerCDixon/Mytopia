@@ -45,8 +45,7 @@
 }
 
 body {
-  @include linear-gradient(#abc7fa, #4251b8);
-  background-repeat: no-repeat;
+  background: url('https://s3.amazonaws.com/mytopia-production/uploads/images/congruent_outline.png')
 }
 
 .featured {
@@ -62,7 +61,8 @@ body {
 }
 
 .about {
-  height: 400px;
+  background-color: #4251b8;
+  height: auto;
   h1 {
     text-align: center;
     color: #e08215;
@@ -98,8 +98,4 @@ body {
   display: inline-block;
   margin-left: 10px;
   font-size: 2em;
-}
-
-.upvote {
-  color: black;
 }
