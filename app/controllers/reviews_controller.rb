@@ -46,6 +46,38 @@ class ReviewsController < ApplicationController
     redirect_to neighborhood_path(@review.neighborhood)
   end
 
+  def upvote
+    @review = Review.find(params[:review_id])
+    @vote = Vote.find_or_create_by(user: current_user, review: @review)
+    @vote.score += 1
+
+    if @vote.save
+      redirect_to @review.neighborhood
+    else
+      flash.now[:warning] = "Sign in to upvote!"
+      @neighborhood = @review.neighborhood
+      @reviews = @neighborhood.reviews
+      @review = Review.new
+      render 'neighborhoods/show'
+    end
+  end
+
+  def downvote
+    @review = Review.find(params[:review_id])
+    @vote = Vote.find_or_create_by(user: current_user, review: @review)
+    @vote.score -= 1
+
+    if @vote.save
+      redirect_to @review.neighborhood
+    else
+      flash.now[:notice] = "Can't vote more than once!"
+      @neighborhood = @review.neighborhood
+      @reviews = @neighborhood.reviews
+      @review = Review.new
+      render 'neighborhoods/show'
+    end
+  end
+
   private
   def review_params
     params.require(:review).permit(:title, :body, :rating)
