@@ -14,4 +14,10 @@ class Neighborhood < ActiveRecord::Base
       self.all # Needs to be fixed when pagination is done
     end
   end
+
+  def calculate_rating(neighborhood)
+    Review.where(neighborhood_id: neighborhood.id).sum(:rating)*10/Review.where(neighborhood_id:neighborhood.id).count
+
+
+  end
 end
