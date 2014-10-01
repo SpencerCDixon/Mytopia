@@ -45,8 +45,7 @@
 }
 
 body {
-  @include linear-gradient(#abc7fa, #4251b8);
-  background-repeat: no-repeat;
+  background: url('https://s3.amazonaws.com/mytopia-production/uploads/images/congruent_outline.png')
 }
 
 .featured {
@@ -62,14 +61,16 @@ body {
 }
 
 .about {
-  height: 400px;
+  background-color: #4251b8;
+  height: auto;
   h1 {
     text-align: center;
-    color: #e08215;
+    /* color: #e08215; */
+    color: white;
     margin: 30px 0;
   }
   h3 {
-    color: white;
+    color: #e08215;
     margin-top: 1.7em;
     margin-left: 10px;
   }
@@ -100,6 +101,25 @@ body {
   font-size: 2em;
 }
 
-.upvote {
-  color: black;
+.logo {
+}
+
+footer {
+  height: 130px;
+  color: white;
+  text-align: center;
+  p.copy {
+    margin-top: 3.5em;
+    font-size: 1em;
+  }
+  p.credits a {
+    color: #e08215;
+  }
+}
+p.credits a:hover {
+  color: #4251b8;
+}
+
+.about p:last-child {
+  margin-bottom: 55px;
 }

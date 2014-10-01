@@ -55,7 +55,7 @@ class ReviewsController < ApplicationController
     if @vote.save
       redirect_to @review.neighborhood
     else
-      flash.now[:warning] = "Sign in to upvote!"
+      flash.now[:warning] = "Log In to upvote!"
       @neighborhood = @review.neighborhood
       @reviews = @neighborhood.reviews
       @review = Review.new
