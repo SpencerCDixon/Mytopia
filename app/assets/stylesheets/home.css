@@ -40,10 +40,11 @@ body {
   height: auto; }
   .about h1 {
     text-align: center;
-    color: #e08215;
+    /* color: #e08215; */
+    color: white;
     margin: 30px 0; }
   .about h3 {
-    color: white;
+    color: #e08215;
     margin-top: 1.7em;
     margin-left: 10px; }
   .about p {
@@ -66,3 +67,19 @@ body {
   display: inline-block;
   margin-left: 10px;
   font-size: 2em; }
+
+footer {
+  height: 130px;
+  color: white;
+  text-align: center; }
+  footer p.copy {
+    margin-top: 3.5em;
+    font-size: 1em; }
+  footer p.credits a {
+    color: #e08215; }
+
+p.credits a:hover {
+  color: #4251b8; }
+
+.about p:last-child {
+  margin-bottom: 55px; }
