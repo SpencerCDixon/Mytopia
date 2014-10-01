@@ -9,13 +9,12 @@
 
     <div class="large-10 columns large-offset-1">
 
-    <%= form_tag root_path, method: :get do %>
+    <%= form_tag neighborhoods_path, method: :get do %>
       <div class="row collapse">
         <div class="small-10 columns">
           <%= text_field_tag :search, params[:search] %>
         </div>
         <div class="small-2 columns">
-          <!-- <%= submit_tag "&#xf043; Search", :name => nil, class: "button postfix fa-input" %> -->
           <button id="search-button" class='button postfix'>
             <%= fa_icon("search") %>
           </button>

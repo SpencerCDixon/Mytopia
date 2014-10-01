@@ -1,6 +1,10 @@
 class NeighborhoodsController < ApplicationController
   def index
-    @neighborhoods = Neighborhood.order(:zipcode).page params[:page]
+    if params[:search]
+      @neighborhoods = Neighborhood.search(params[:search])
+    else
+      @neighborhoods = Neighborhood.order(:zipcode).page params[:page]
+    end
   end
 
   def show

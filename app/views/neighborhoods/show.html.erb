@@ -18,6 +18,7 @@
       <%= image_tag @neighborhood.photo.url %>
       <div class="progress small alert">
         <span class="meter" style="width:<%= @neighborhood.calculate_rating %>%"></span>
+        <%= @neighborhood.calculate_rating %>/100
       </div>
     </div>
 
