@@ -49,22 +49,19 @@
               <button class="tiny">
                 <%= review.calculate_upvotes(review) %> Upvotes
               </button>
-
-              <%= link_to review.title, neighborhood_review_path(@neighborhood, review), class: "btn info" %>
+              <%= link_to review.title, neighborhood_review_path(@neighborhood, review) %>
             </h3>
             <p>
               <em>Written by: <%= link_to review.user.username, user_path(review.user) %></em>
             </p>
           </div>
 
-          <article>
+          <article class="review-body">
             <%= review.body %>
 
-          </article>
-
             <% if review.owner?(current_user) %>
-              <%= link_to 'Edit', edit_neighborhood_review_path(@neighborhood, review), class: "button tiny alert edit" %>
-              <%= link_to 'Delete', neighborhood_review_path(@neighborhood, review), method: :delete, data: {confirm: 'Are you sure you want to delete review?'} %>
+              <%= link_to 'Edit', edit_neighborhood_review_path(@neighborhood, review), class: "button tiny  edit" %>
+              <%= link_to 'Delete', neighborhood_review_path(@neighborhood, review), method: :delete, data: {confirm: 'Are you sure you want to delete review?'}, class: "button tiny delete" %>
             <% end %>
 
             <% if review.upvoted?(current_user) %>
@@ -73,9 +70,11 @@
 
               <%= link_to 'Upvote', neighborhood_review_upvote_path(@neighborhood, review), method: :post, class: "upvote button alert tiny" %>
             <% end %>
+
+          </article>
+
         <% end %>
       <% end %>
-
     </div>
   </div>
 
@@ -96,7 +95,6 @@
             </ul>
           </div>
         <% end %>
-
           <p>
             <%= f.label :title  %><br>
             <%= f.text_field :title %>
@@ -109,7 +107,6 @@
             <%= f.label :rating  %><br>
             <%= f.select :rating, 1..10 %>
           </p>
-
           <%= f.submit 'Create Review', class: "button" %>
         <% end %>
       <% end %>
@@ -117,7 +114,6 @@
       <% if !current_user %>
         <%= link_to 'If you want to leave a review, please log in.', new_user_session_path, class: "button alert center" %>
       <% end %>
-
     </div>
   </div>
 </div>
