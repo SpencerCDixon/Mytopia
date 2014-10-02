@@ -13,4 +13,16 @@ feature "Authorized users can update and delete their own reviews" do
     expect(page).to_not have_link('Edit')
     expect(page).to_not have_link('Delete')
   end
+
+  scenario 'the owner of the review can delete reviews' do
+    review = FactoryGirl.create(:review)
+
+    sign_in_as(review.user)
+
+    visit neighborhood_path(review.neighborhood)
+
+    click_on 'Delete'
+
+    expect(page).to_not have_content(review.body)
+  end
 end
