@@ -18,4 +18,14 @@ feature "Admin can update or delete comment" do
 
     expect(page).to have_content("New title")
   end
+
+  scenario "admin can delete comment" do
+    comment = FactoryGirl.create(:comment)
+
+    sign_in_as(admin)
+    visit admin_neighborhood_review_path(comment.review.neighborhood, comment.review)
+
+    click_on "Delete"
+    expect(page).to_not have_content(comment.body)
+  end
 end
