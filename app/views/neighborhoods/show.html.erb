@@ -7,6 +7,8 @@
           <div class="neighborhood-photo">
             <%= image_tag photo.photo.url %>
           </div>
+        <%elsif photo.nil?%>
+          <%= image_tag photo.photo.default_url %>
         <% end %>
       <% end %><br>
 

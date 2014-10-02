@@ -1,7 +1,6 @@
 class Neighborhood < ActiveRecord::Base
   validates :city, presence: true
   validates :state, presence: true
-  
 
   has_many :reviews
   has_many :neighborhood_photos
