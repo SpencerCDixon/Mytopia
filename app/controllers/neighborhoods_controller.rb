@@ -10,7 +10,9 @@ class NeighborhoodsController < ApplicationController
   def show
     @neighborhood = Neighborhood.find(params[:id])
     @review = Review.new
-    @reviews = @neighborhood.reviews
+    @reviews = @neighborhood.reviews.order(:upvotes)
+    z = ZillowAPI.new(neighborhood)
+    @data = ZillowAPI.new(@neighborhood).scrape
     @neighborhood_photo = NeighborhoodPhoto.new
   end
 

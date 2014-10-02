@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <td width="150"> City: </td>
+    <td> <%= @neighborhood.city %> </td>
+  </tr>
+  <tr>
+    <td> State: </td>
+    <td>  <%= @neighborhood.state %>  </td>
+  </tr>
+  <tr>
+    <td> Zipcode: </td>
+    <td> <%= @neighborhood.zipcode %> </td>
+  </tr>
+</table>
+<div class="progress small alert">
+  <span class="meter" style="width:<%= @neighborhood.calculate_rating %>%"></span>
+  <%= @neighborhood.calculate_rating %>/100
+</div>
