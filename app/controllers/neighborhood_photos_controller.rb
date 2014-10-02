@@ -15,7 +15,6 @@ class NeighborhoodPhotosController < ApplicationController
 
   def show
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
-
   end
 
   private

@@ -51,6 +51,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:review_id])
     @vote = Vote.find_or_create_by(user: current_user, review: @review)
     @vote.score += 1
+    @neighborhood_photo = NeighborhoodPhoto.new
 
     if @vote.save
       redirect_to @review.neighborhood
@@ -67,6 +68,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:review_id])
     @vote = Vote.find_or_create_by(user: current_user, review: @review)
     @vote.score -= 1
+    @neighborhood_photo = NeighborhoodPhoto.new
 
     if @vote.save
       redirect_to @review.neighborhood
