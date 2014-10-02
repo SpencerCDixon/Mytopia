@@ -1,8 +1,11 @@
 class Admin::NeighborhoodsController < ApplicationController
   before_filter :admin_authorize!
   def index
-    @neighborhoods = Neighborhood.order(:zipcode).page params[:page]
-    @neighborhoods = Neighborhood.search(params[:search])
+    if params[:search]
+      @neighborhoods = Neighborhood.search(params[:search]).order(:name).page params[:page]
+    else
+      @neighborhoods = Neighborhood.order(:zipcode).page params[:page]
+    end
   end
 
   def show
