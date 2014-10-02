@@ -42,7 +42,7 @@
 
       <li>
       <%= link_to "#{review.comments.count} Comments", neighborhood_review_path(review.neighborhood, review) %>
-        <button class="button tiny vote alert">
+        <button class="button tiny display-upvotes alert">
           Upvotes: <%= review.calculate_upvotes(review) %>
         </button>
       </li>
