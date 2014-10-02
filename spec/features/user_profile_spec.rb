@@ -8,6 +8,7 @@ feature "Authenticated user can view others' profiles" do
 
     sign_in_as(user)
     visit user_path(review.user)
+
     expect(page).to have_content(review.title)
   end
 end
