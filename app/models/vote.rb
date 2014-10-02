@@ -7,4 +7,8 @@ class Vote < ActiveRecord::Base
   belongs_to :review
 
   # validates_uniquness_of :review_id, scope: :user_id
+
+  def self.review_scores
+    group(:review_id).select("review_id, SUM(score) AS score")
+  end
 end
