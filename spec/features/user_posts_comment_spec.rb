@@ -56,7 +56,7 @@ feature "Authenticated user can comment on reviews" do
 
     click_on 'Create Comment'
 
-    expect(page).to have_content('prohibited')
+    expect(page).to have_content('error')
   end
 
 end
