@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20141002163646) do
     t.string   "county"
     t.string   "photo"
     t.boolean  "feature"
-    t.string   "region_id"
+    t.string   "regionid"
   end
 
   create_table "reviews", force: true do |t|
