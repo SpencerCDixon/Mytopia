@@ -19,7 +19,7 @@ feature "Admin can update a neighborhood" do
     visit admin_neighborhoods_path
 
     expect(page).to have_content("Invalid request")
-    
+
   end
 
   scenario "admin edits a neighborhood" do
@@ -40,11 +40,11 @@ feature "Admin can update a neighborhood" do
   end
 
   scenario "admin deletes a neighborhood" do
-    FactoryGirl.create(:neighborhood)
+    neighborhood = FactoryGirl.create(:neighborhood)
     sign_in_as(admin)
     visit admin_neighborhoods_path
 
     click_on "Delete"
-    expect(page).to_not have_content("Newtonville")
+    expect(page).to_not have_content(neighborhood.city)
   end
 end
