@@ -1,8 +1,5 @@
 class Admin::ReviewsController < ApplicationController
   before_filter :admin_authorize!
-  def index
-    @reviews = Review.all
-  end
 
   def show
     @review = Review.find(params[:id])

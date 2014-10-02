@@ -1,12 +1,5 @@
 class Admin::CommentsController < ApplicationController
   before_filter :admin_authorize!
-  def index
-    @comments = Comment.all
-  end
-
-  def show
-    @comment = Comment.find(params[:id])
-  end
 
   def edit
     @comment = Comment.find(params[:id])
