@@ -10,5 +10,6 @@ describe Neighborhood do
 
   describe 'associations' do
     it { should have_many(:reviews) }
+    it { should have_many(:neighborhood_photos) }
   end
 end

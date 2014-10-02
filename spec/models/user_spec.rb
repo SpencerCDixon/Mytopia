@@ -9,5 +9,6 @@ describe User do
   describe 'associations' do
     it { should have_many(:reviews) }
     it { should have_many(:comments) }
+    it { should have_many(:neighborhood_photos) }
   end
 end
