@@ -31,12 +31,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << [:username, :admin, :profile_photo]
   end
 
-  def authorize!
-    if current_user.nil? || !current_user.admin?
-      flash[:warning] = "Invalid request"
-      redirect_to root_path
-    end
-  end
+  # def authorize!
+  #   if current_user.nil? || !current_user.admin?
+  #     flash[:warning] = "Invalid request"
+  #     redirect_to root_path
+  #   end
+  # end
 
   def admin_authorize!
     if !current_user.admin?
