@@ -1,0 +1,18 @@
+<div class="row information">
+
+  <%= form_for [:admin, @neighborhood_photo.neighborhood, @neighborhood_photo] do |f|  %>
+
+  <p>
+    <%= f.label :featured %><br>
+    <%= f.select :featured, options_for_select(["false", "true"]) %>
+  </p>
+
+  <p>
+    <%= f.label :approved %><br>
+    <%= f.select :approved, options_for_select(["false", "true"]) %>
+  </p>
+
+    <%= f.submit "Update Neighborhood Photo", class: "button" %>
+
+  <% end %>
+</div>

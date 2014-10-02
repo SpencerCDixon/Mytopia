@@ -1,0 +1,14 @@
+<ol>
+  <% @neighborhood.neighborhood_photos.each do |photo| %>
+    <li><%= image_tag photo.photo.url %>
+    <% if photo.featured %>
+      FEATURED PHOTO
+    <% end %>
+    <%= link_to 'Edit', edit_admin_neighborhood_neighborhood_photo_path(@neighborhood, photo), class: "button tiny primary" %>
+    <%= link_to 'Delete', admin_neighborhood_neighborhood_photo_path(@neighborhood, photo), class: "button tiny alert", method: :delete, data: {confirm: 'Are you sure you want to delete photo?'} %>
+      Photo Submitted by: <%= link_to photo.user.username, user_path(photo.user)%><br>
+    </li>
+  <% end %>
+</ol>
+
+<%= link_to 'Back', admin_neighborhoods_path %>
