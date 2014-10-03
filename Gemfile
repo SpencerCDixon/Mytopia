@@ -54,6 +54,7 @@ end
 
 
 group :development, :test do
+  gem 'rack-mini-profiler'
   gem 'valid_attribute'
   gem 'shoulda-matchers'
   gem 'pry-rails'
@@ -63,4 +64,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'email_spec'
   gem 'dotenv-rails'
+  gem 'faker'
+  gem 'populator'
 end

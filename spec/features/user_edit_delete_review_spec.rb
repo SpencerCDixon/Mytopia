@@ -20,7 +20,6 @@ feature "Authorized users can update and delete their own reviews" do
     sign_in_as(review.user)
 
     visit neighborhood_path(review.neighborhood)
-
     click_on 'Delete'
 
     expect(page).to_not have_content(review.body)
