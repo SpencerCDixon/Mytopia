@@ -11,7 +11,8 @@
     <li><%= link_to 'Find Neighborhood', neighborhoods_path %> </li>
 
       <% if current_user %>
-        <li class="has-dropdown"><%= link_to "Profile", user_path(current_user), class: "btn success" %>
+        <li class="has-dropdown">
+          <%= link_to "Profile", user_path(current_user), class: "btn success" %>
           <ul class="dropdown">
             <li><%= link_to "Update", edit_user_registration_path(current_user), class: "btn success" %></li>
           </ul>
