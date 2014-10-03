@@ -11,6 +11,7 @@ class Admin::NeighborhoodPhotosController < ApplicationController
     @neighborhood_photo = NeighborhoodPhoto.find(params[:id])
 
     if @neighborhood_photo.update(neighborhood_photo_params)
+      flash[:success] = "You updated photo status"
       redirect_to admin_neighborhood_neighborhood_photo_path(@neighborhood_photo.neighborhood, @neighborhood_photo)
     else
       render 'edit'

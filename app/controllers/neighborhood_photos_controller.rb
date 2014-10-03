@@ -10,7 +10,7 @@ class NeighborhoodPhotosController < ApplicationController
       redirect_to neighborhood_path(@neighborhood)
     else
       flash[:alert] = "You need to submit a photo."
-      render 'neighborhoods/show'
+      redirect_to neighborhood_path(@neighborhood)
     end
   end
 
@@ -20,7 +20,6 @@ class NeighborhoodPhotosController < ApplicationController
 
   private
   def neighborhood_photo_params
-    return {neighborhood_id: nil} unless params[:neighborhood_photo]
-    params.require(:neighborhood_photo).permit(:neighborhood_photo, :user_id, :neighborhood_id, :photo)
+    params.require(:neighborhood_photo).permit(:neighborhood_photo, :user_id, :neighborhood_id, :photo) if params[:neighborhood_photo]
   end
 end
