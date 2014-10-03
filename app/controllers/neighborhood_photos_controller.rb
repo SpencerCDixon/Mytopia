@@ -20,6 +20,6 @@ class NeighborhoodPhotosController < ApplicationController
 
   private
   def neighborhood_photo_params
-    params.require(:neighborhood_photo).permit(:neighborhood_photo, :user_id, :neighborhood_id, :photo) if params[:neighborhood_photo]
+    params.require(:neighborhood_photo).permit(:neighborhood_photo, :user_id, :neighborhood_id, :photo)
   end
 end
