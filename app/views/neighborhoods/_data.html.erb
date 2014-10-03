@@ -1,0 +1,94 @@
+
+<dl class="tabs" data-tab>
+  <dd class="active"><a href="#panel1">General</a></dd>
+  <dd><a href="#panel2">People &amp; Culture</a></dd>
+  <dd><a href="#panel3">Housing</a></dd>
+</dl>
+<div class="tabs-content">
+  <div class="content active" id="panel1">
+    <table >
+      <caption> General Information </caption>
+      <tr>
+        <td width="150"> City: </td>
+        <td> <%= @neighborhood.city %> </td>
+      </tr>
+      <tr>
+        <td> State: </td>
+        <td>  <%= @neighborhood.state %>  </td>
+      </tr>
+      <tr>
+        <td> Median Income </td>
+        <td> <%= number_to_currency(@data.try(:median_income)) %>  </td>
+      </tr>
+      <tr>
+        <td> Median Age </td>
+        <td>  <%= @data.median_age %> years old </td>
+      </tr>
+    </table>
+
+  </div>
+  <div class="content" id="panel2">
+    <table>
+      <tr>
+        <td> With Kids: </td>
+        <td> <%= @data.with_kids %> % </td>
+        <td> No Kids: </td>
+        <td> <%= @data.no_kids %> % </td>
+      </tr>
+      <tr>
+        <td> People: </td>
+        <td>
+          <ul class="table-text">
+          <% @data.desc_education.try(:each) do |info| %>
+            <li> <%= info %> </li>
+          <% end %>
+          </ul>
+        </td>
+        <td>
+          <ul class="table-text">
+          <% @data.desc_employment.try(:each) do |info| %>
+            <li> <%= info %> </li>
+          <% end %>
+          </ul>
+        </td>
+        <tr>
+          <td> Single Males: </td>
+          <td> <%= number_to_percentage(@data.single_males, precision: 1 ) %> </td>
+        </tr>
+        <tr>
+          <td> Single Females: </td>
+          <td> <%= number_to_percentage(@data.single_females, precision: 1 ) %>  </td>
+        </tr>
+
+      </tr>
+    </table>
+  </div>
+  <div class="content" id="panel3">
+    <table>
+      <tr>
+        <td> Property Tax: </td>
+        <td> <%= number_to_currency(@data.property_tax) %>  </td>
+      </tr>
+      <tr>
+      <tr>
+        <td> Value Per Sq Foot: </td>
+        <td> <%= number_to_currency(@data.sq_foot) %>  </td>
+      </tr>
+      <tr>
+      <tr>
+        <td> Median List Price: </td>
+        <td> <%= number_to_currency(@data.median_list_price) %>  </td>
+      </tr>
+      <tr>
+      <tr>
+        <td> Median Sale Price: </td>
+        <td> <%= number_to_currency(@data.median_sale_price) %>  </td>
+      </tr>
+      <tr>
+    </table>
+  </div>
+</div>
+<div class="progress small alert">
+  <span class="meter" style="width:<%= @neighborhood.calculate_rating %>%"></span>
+  <%= @neighborhood.calculate_rating %>/100
+</div>

@@ -7,10 +7,15 @@
           <div class="neighborhood-photo">
             <%= image_tag photo.photo.url %>
           </div>
+        <%elsif photo.nil?%>
+          <%= image_tag photo.photo.default_url %>
         <% end %>
-      <% end %><br>
+        <br>
+      <% end %>
 
-      <%= link_to "More photos of #{@neighborhood.name}", neighborhood_neighborhood_photo_path(@neighborhood, @neighborhood.neighborhood_photos) %>
+      <% if !@neighborhood.neighborhood_photos.empty? %>
+        <%= link_to "More photos of #{@neighborhood.name}", neighborhood_neighborhood_photo_path(@neighborhood, @neighborhood.neighborhood_photos) %>
+      <% end %>
 
       <% if current_user %>
         <%= form_for [@neighborhood, @neighborhood_photo] do |f| %>
@@ -23,27 +28,13 @@
         <% end %>
       <% end %>
 
+      <% if !current_user %>
+        <%= link_to "Sign in to Submit Photo", new_user_session_path %>
+      <% end %>
     </div>
 
     <div class="large-8 columns">
-      <table>
-        <tr>
-          <td width="150"> City: </td>
-          <td> <%= @neighborhood.city %> </td>
-        </tr>
-        <tr>
-          <td> State: </td>
-          <td>  <%= @neighborhood.state %>  </td>
-        </tr>
-        <tr>
-          <td> Zipcode: </td>
-          <td> <%= @neighborhood.zipcode %> </td>
-        </tr>
-      </table>
-      <div class="progress small alert">
-        <span class="meter" style="width:<%= @neighborhood.calculate_rating %>%"></span>
-        <%= @neighborhood.calculate_rating %>/100
-      </div>
+      <%= render 'neighborhoods/data' %>
     </div>
   </div>
 
@@ -78,9 +69,7 @@
 
               <%= link_to 'Upvote', neighborhood_review_upvote_path(@neighborhood, review), method: :post, class: "upvote button alert tiny" %>
             <% end %>
-
           </article>
-
         <% end %>
       <% end %>
     </div>

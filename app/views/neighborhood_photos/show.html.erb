@@ -1,8 +1,14 @@
-Photos of <%= @neighborhood.name %>
-<ol>
-  <% @neighborhood.neighborhood_photos.each do |photo|%>
-    <li><%= image_tag photo.photo.url %></li>
-  <% end %>
-</ol>
+<div class="photo-neighborhood-title">
+  Photos of <%= @neighborhood.name %>
+</div><br><br>
+<div class="large-4 large-centered column" >
+  <ol class="example-orbit" data-orbit>
+    <% @neighborhood.neighborhood_photos.each do |photo|%>
+      <% if photo.featured || photo.approved %>
+        <li class="slideshow-neighborhood"><%= image_tag photo.photo.url, :size => "600x600" %></li>
+      <% end %>
+    <% end %>
+  </ol>
+</div>
 
 <!-- We have to make this so only approved photos can beseen just did without so that I could see that it is working   -->

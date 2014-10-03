@@ -16,5 +16,10 @@
 //= require_tree .
 
  window.onload = function() {
-        $(document).foundation();
+  $(document).foundation({
+    tab: {
+      callback : function (tab) {
+        console.log(tab);
+      }
+  });
 };

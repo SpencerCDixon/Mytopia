@@ -20,4 +20,15 @@ feature "Admin can see a list of neighborhoods" do
     expect(current_path).to eq(root_path)
   end
 
+  scenario "admin can search for neighborhood" do
+    neighborhood = FactoryGirl.create(:neighborhood)
+    sign_in_as(admin)
+    visit admin_neighborhoods_path
+    fill_in("search", with: neighborhood.name)
+
+    find('#search-button').click
+
+    expect(page).to have_content(neighborhood.name)
+  end
+
 end
