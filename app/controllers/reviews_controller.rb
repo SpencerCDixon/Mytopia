@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_filter :authenticate_user!, only: [:upvote, :downvote]
+
   def new
     @review = Review.new
   end
