@@ -23,9 +23,9 @@ class Review < ActiveRecord::Base
     end
   end
 
-  # def calculate_upvotes
-  #   votes.sum(:score)
-  # end
+  def calculate_upvotes
+    votes.sum(:score)
+  end
 
   def self.with_score
     joins("LEFT OUTER JOIN (SELECT review_id, SUM(score) AS score FROM votes GROUP BY review_id) vote_scores ON vote_scores.review_id = reviews.id")
