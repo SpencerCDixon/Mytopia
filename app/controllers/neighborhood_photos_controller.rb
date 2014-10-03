@@ -10,7 +10,7 @@ class NeighborhoodPhotosController < ApplicationController
       redirect_to neighborhood_path(@neighborhood)
     else
       flash[:alert] = "You need to submit a photo."
-      render 'neighborhoods/show'
+      redirect_to neighborhood_path(@neighborhood)
     end
   end
 
