@@ -3,7 +3,6 @@ require 'rails_helper'
 feature 'A user can upvote a review' do
 
   scenario 'user has to log in upvote' do
-    # review = FactoryGirl.create(:review)
     vote = FactoryGirl.create(:vote)
     visit neighborhood_path(vote.review.neighborhood, vote.review)
 

@@ -17,3 +17,11 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+  $(document).foundation({
+    tab: {
+      callback : function (tab) {
+        console.log(tab);
+      }
+    }
+  });
