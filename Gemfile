@@ -64,4 +64,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'email_spec'
   gem 'dotenv-rails'
+  gem 'faker'
+  gem 'populator'
 end

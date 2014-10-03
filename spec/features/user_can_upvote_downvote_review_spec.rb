@@ -8,7 +8,6 @@ feature 'A user can upvote a review' do
 
     click_on 'Upvote'
     expect(page).to have_content('You need to Log In or sign up before continuing')
-
   end
 
   scenario 'user can upvote a review' do
