@@ -2,13 +2,15 @@
   <h1 style="text-align: center;"><%= @neighborhood.name %></h1>
   <div class="row">
     <div class="large-4 columns">
+      <% if @neighborhood.neighborhood_photos.empty? %>
+        <%= image_tag 'https://www.flowdock.com/rest/files/76348/8OOna9tT2aXbJS3NGoh4Tw/defaultHouse.jpg' %>
+      <% end %>
       <% @neighborhood.neighborhood_photos.each do |photo| %>
         <% if photo.featured == true %>
           <div class="neighborhood-photo">
             <%= image_tag photo.photo.url %>
           </div>
-        <% end %>
-        <br>
+        <% end %> 
       <% end %>
 
       <% if !@neighborhood.neighborhood_photos.empty? %>

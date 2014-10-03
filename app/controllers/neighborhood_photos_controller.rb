@@ -20,6 +20,7 @@ class NeighborhoodPhotosController < ApplicationController
 
   private
   def neighborhood_photo_params
+    return {neighborhood_id: nil} unless params[:user]
     params.require(:neighborhood_photo).permit(:neighborhood_photo, :user_id, :neighborhood_id, :photo)
   end
 end
