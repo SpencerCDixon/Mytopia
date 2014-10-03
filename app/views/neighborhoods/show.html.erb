@@ -10,7 +10,7 @@
           <div class="neighborhood-photo">
             <%= image_tag photo.photo.url %>
           </div>
-        <% end %> 
+        <% end %>
       <% end %>
 
       <% if !@neighborhood.neighborhood_photos.empty? %>
@@ -37,24 +37,7 @@
     </div>
 
     <div class="large-8 columns">
-      <table>
-        <tr>
-          <td width="150"> City: </td>
-          <td> <%= @neighborhood.city %> </td>
-        </tr>
-        <tr>
-          <td> State: </td>
-          <td>  <%= @neighborhood.state %>  </td>
-        </tr>
-        <tr>
-          <td> Zipcode: </td>
-          <td> <%= @neighborhood.zipcode %> </td>
-        </tr>
-      </table>
-      <div class="progress small alert">
-        <span class="meter" style="width:<%= @neighborhood.calculate_rating %>%"></span>
-        <%= @neighborhood.calculate_rating %>/100
-      </div>
+      <%= render 'neighborhoods/data' %>
     </div>
   </div>
 
@@ -89,9 +72,7 @@
 
               <%= link_to 'Upvote', neighborhood_review_upvote_path(@neighborhood, review), method: :post, class: "upvote button alert tiny" %>
             <% end %>
-
           </article>
-
         <% end %>
       <% end %>
     </div>

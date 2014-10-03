@@ -19,9 +19,8 @@ class UsersController < ApplicationController
   end
 
   private
-
   def user_params
-    return {email: nil} unless params[:user]
+    return { email: nil } unless params[:user]
     params.require(:user).permit(:profile_photo, :email)
   end
 end
