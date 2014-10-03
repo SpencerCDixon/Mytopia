@@ -3,7 +3,7 @@ namespace :db do
   task :populate => :environment do
     require 'populator'
     require 'faker'
-    User.populate(300) do |user|
+    User.populate(500) do |user|
       user.username = Faker::Name.first_name
       user.email = Faker::Internet.email
       user.encrypted_password = "testtest"
