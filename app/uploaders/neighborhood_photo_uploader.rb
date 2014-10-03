@@ -13,6 +13,6 @@ class NeighborhoodPhotoUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+    # add the S3 link
   end
 end

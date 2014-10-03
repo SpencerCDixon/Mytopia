@@ -13,13 +13,14 @@ class UsersController < ApplicationController
       flash[:success] = "You have successfully updated your profile picture."
       redirect_to user_path(@user)
     else
+      flash[:success] = "You need to submit a photo."
       render "show"
     end
   end
 
   private
-
   def user_params
+    return {email:nil} unless params[:user]
     params.require(:user).permit(:profile_photo, :email)
   end
 end
