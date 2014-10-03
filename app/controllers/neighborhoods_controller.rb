@@ -12,6 +12,7 @@ class NeighborhoodsController < ApplicationController
     @review = Review.new
     @reviews = @neighborhood.reviews.with_score.includes(:votes)
     @neighborhood_photo = NeighborhoodPhoto.new
+    @data = ZillowAPI.new(@neighborhood)
   end
 
   # def new

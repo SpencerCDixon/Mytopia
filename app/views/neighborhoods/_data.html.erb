@@ -1,17 +1,45 @@
-<table>
-  <tr>
-    <td width="150"> City: </td>
-    <td> <%= @neighborhood.city %> </td>
-  </tr>
-  <tr>
-    <td> State: </td>
-    <td>  <%= @neighborhood.state %>  </td>
-  </tr>
-  <tr>
-    <td> Zipcode: </td>
-    <td> <%= @neighborhood.zipcode %> </td>
-  </tr>
-</table>
+
+<dl class="tabs" data-tab>
+  <dd class="active"><a href="#panel1">General</a></dd>
+  <dd><a href="#panel2">People &amp; Culture</a></dd>
+  <dd><a href="#panel3">Income</a></dd>
+  <dd><a href="#panel4">Housing</a></dd>
+</dl>
+<div class="tabs-content">
+  <div class="content active" id="panel1">
+    <table>
+      <tr>
+        <td width="150"> City: </td>
+        <td> <%= @neighborhood.city %> </td>
+      </tr>
+      <tr>
+        <td> State: </td>
+        <td>  <%= @neighborhood.state %>  </td>
+      </tr>
+      <tr>
+        <td> Zipcode: </td>
+        <td> <%= @neighborhood.zipcode %> </td>
+      </tr>
+    </table>
+
+  </div>
+  <div class="content" id="panel2">
+    <table>
+      <tr>
+        <td> With Kids: </td>
+        <td> <%= @data.with_kids %> % </td>
+        <td> No Kids: </td>
+        <td> <%= @data.no_kids %> % </td>
+      </tr>
+    </table>
+  </div>
+  <div class="content" id="panel3">
+    <p>This is the third panel of the basic tab example. This is the third panel of the basic tab example.</p>
+  </div>
+  <div class="content" id="panel4">
+    <p>This is the fourth panel of the basic tab example. This is the fourth panel of the basic tab example.</p>
+  </div>
+</div>
 <div class="progress small alert">
   <span class="meter" style="width:<%= @neighborhood.calculate_rating %>%"></span>
   <%= @neighborhood.calculate_rating %>/100
