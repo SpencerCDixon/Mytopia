@@ -67,6 +67,22 @@ attr_reader :neighborhood, :data
     @data.metrics["People Data"]["Median Age"][:neighborhood].value
   end
 
+  def property_tax
+    @data.affordability_data["Property Tax"][:neighborhood].value
+  end
+
+  def sq_foot
+    @data.affordability_data["Median Value Per Sq Ft"][:neighborhood].value
+  end
+
+  def median_list_price
+    @data.affordability_data["Median List Price"][:neighborhood].value
+  end
+
+  def median_sale_price
+    @data.affordability_data["Median Sale Price"][:neighborhood].value 
+  end
+
 
 
 end

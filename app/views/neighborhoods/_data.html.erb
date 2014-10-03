@@ -2,8 +2,7 @@
 <dl class="tabs" data-tab>
   <dd class="active"><a href="#panel1">General</a></dd>
   <dd><a href="#panel2">People &amp; Culture</a></dd>
-  <dd><a href="#panel3">Income</a></dd>
-  <dd><a href="#panel4">Housing</a></dd>
+  <dd><a href="#panel3">Housing</a></dd>
 </dl>
 <div class="tabs-content">
   <div class="content active" id="panel1">
@@ -65,10 +64,28 @@
     </table>
   </div>
   <div class="content" id="panel3">
-    <p>This is the third panel of the basic tab example. This is the third panel of the basic tab example.</p>
-  </div>
-  <div class="content" id="panel4">
-    <p>This is the fourth panel of the basic tab example. This is the fourth panel of the basic tab example.</p>
+    <table>
+      <tr>
+        <td> Property Tax: </td>
+        <td> <%= number_to_currency(@data.property_tax) %>  </td>
+      </tr>
+      <tr>
+      <tr>
+        <td> Value Per Sq Foot: </td>
+        <td> <%= number_to_currency(@data.sq_foot) %>  </td>
+      </tr>
+      <tr>
+      <tr>
+        <td> Median List Price: </td>
+        <td> <%= number_to_currency(@data.median_list_price) %>  </td>
+      </tr>
+      <tr>
+      <tr>
+        <td> Median Sale Price: </td>
+        <td> <%= number_to_currency(@data.median_sale_price) %>  </td>
+      </tr>
+      <tr>
+    </table>
   </div>
 </div>
 <div class="progress small alert">
