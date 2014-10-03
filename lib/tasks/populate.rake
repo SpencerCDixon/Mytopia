@@ -14,6 +14,11 @@ namespace :db do
         review.body = Populator.paragraphs(1..2)
         review.rating = 0..10
         review.neighborhood_id = 0..6958
+        Comment.populate(10) do |comment|
+          comment.user_id = user.id
+          comment.body = Populator.sentences(1..4)
+          comment.review_id = review.id
+        end
       end
     end
   end
