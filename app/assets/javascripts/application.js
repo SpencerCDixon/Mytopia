@@ -13,15 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
-
-  $(document).foundation({
-    tab: {
-      callback : function (tab) {
-        console.log(tab);
-      }
-    }
-  });
+window.onload = function() {
+  $(document).foundation();
+};

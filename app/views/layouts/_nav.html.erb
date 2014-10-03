@@ -11,8 +11,11 @@
     <li><%= link_to 'Find Neighborhood', neighborhoods_path %> </li>
 
       <% if current_user %>
-        <li>
+        <li class="has-dropdown">
           <%= link_to "Profile", user_path(current_user), class: "btn success" %>
+          <ul class="dropdown">
+            <li><%= link_to "Update", edit_user_registration_path(current_user), class: "btn success" %></li>
+          </ul>
         </li>
         <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn success" %></li>
 

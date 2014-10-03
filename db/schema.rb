@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20141002210256) do
   end
 
   create_table "neighborhoods", force: true do |t|
-    t.string   "city",       null: false
-    t.string   "state",      null: false
+    t.string   "city",           null: false
+    t.string   "state",          null: false
     t.string   "zipcode"
     t.string   "name"
     t.datetime "created_at"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20141002210256) do
     t.string   "photo"
     t.boolean  "feature"
     t.string   "regionid"
+    t.string   "state_fullname"
   end
 
   create_table "reviews", force: true do |t|
