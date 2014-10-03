@@ -7,7 +7,8 @@
 </dl>
 <div class="tabs-content">
   <div class="content active" id="panel1">
-    <table>
+    <table >
+      <caption> General Information </caption>
       <tr>
         <td width="150"> City: </td>
         <td> <%= @neighborhood.city %> </td>
@@ -17,8 +18,12 @@
         <td>  <%= @neighborhood.state %>  </td>
       </tr>
       <tr>
-        <td> Zipcode: </td>
-        <td> <%= @neighborhood.zipcode %> </td>
+        <td> Median Income </td>
+        <td> <%= number_to_currency(@data.median_income) %>  </td>
+      </tr>
+      <tr>
+        <td> Median Age </td>
+        <td>  <%= @data.median_age %> years old </td>
       </tr>
     </table>
 
@@ -30,6 +35,32 @@
         <td> <%= @data.with_kids %> % </td>
         <td> No Kids: </td>
         <td> <%= @data.no_kids %> % </td>
+      </tr>
+      <tr>
+        <td> People: </td>
+        <td>
+          <ul class="table-text">
+          <% @data.desc_education.each do |info| %>
+            <li> <%= info %> </li>
+          <% end %>
+          </ul>
+        </td>
+        <td>
+          <ul class="table-text">
+          <% @data.desc_employment.each do |info| %>
+            <li> <%= info %> </li>
+          <% end %>
+          </ul>
+        </td>
+        <tr>
+          <td> Single Males: </td>
+          <td> <%= number_to_percentage(@data.single_males, precision: 1 ) %> </td>
+        </tr>
+        <tr>
+          <td> Single Females: </td>
+          <td> <%= number_to_percentage(@data.single_females, precision: 1 ) %>  </td>
+        </tr>
+
       </tr>
     </table>
   </div>
