@@ -15,6 +15,7 @@ class ReviewsController < ApplicationController
       flash[:success] = "You have successfully created a review."
       redirect_to @neighborhood
     else
+      @data = ZillowAPI.new(@neighborhood)
       @neighborhood_photo = NeighborhoodPhoto.new
       render 'neighborhoods/show'
     end
