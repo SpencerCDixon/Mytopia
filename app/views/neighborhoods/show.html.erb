@@ -8,9 +8,12 @@
             <%= image_tag photo.photo.url %>
           </div>
         <% end %>
-      <% end %><br>
+        <br>
+      <% end %>
 
-      <%= link_to "More photos of #{@neighborhood.name}", neighborhood_neighborhood_photo_path(@neighborhood, @neighborhood.neighborhood_photos) %>
+      <% if !@neighborhood.neighborhood_photos.empty? %>
+        <%= link_to "More photos of #{@neighborhood.name}", neighborhood_neighborhood_photo_path(@neighborhood, @neighborhood.neighborhood_photos) %>
+      <% end %>
 
       <% if current_user %>
         <%= form_for [@neighborhood, @neighborhood_photo] do |f| %>
@@ -21,6 +24,10 @@
 
           <%= f.submit 'Submit Photo', class: "button tiny" %>
         <% end %>
+      <% end %>
+
+      <% if !current_user %>
+        <%= link_to "Sign in to Submit Photo", new_user_session_path %>
       <% end %>
 
 

@@ -20,8 +20,9 @@
         <%= link_to n.name, admin_neighborhood_path(n) %>
          <%= link_to "Edit", edit_admin_neighborhood_path(n), class: "button tiny primary" %>
          <%= link_to "Delete", admin_neighborhood_path(n), class: "button tiny alert", method: :delete, data: {confirm: 'Are you sure you want to delete comment?'} %>
-         <%= link_to "Review Photos", admin_neighborhood_neighborhood_photo_path(n, n.neighborhood_photos), class: "button tiny primary" %>
-
+         <% if !n.neighborhood_photos.empty? %>
+          <%= link_to "Review Photos", admin_neighborhood_neighborhood_photo_path(n, n.neighborhood_photos), class: "button tiny primary" %>
+         <% end %>
          </li>
     <% end %>
   </ul>
