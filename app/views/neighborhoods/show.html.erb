@@ -40,7 +40,7 @@
           <div class="title">
             <h3>
               <button class="tiny">
-                <%= review.calculate_upvotes(review) %> Upvotes
+                <%= review.score %> Upvotes
               </button>
               <%= link_to review.title, neighborhood_review_path(@neighborhood, review) %>
             </h3>
