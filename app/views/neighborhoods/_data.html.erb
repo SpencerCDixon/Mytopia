@@ -18,7 +18,7 @@
       </tr>
       <tr>
         <td> Median Income </td>
-        <td> <%= number_to_currency(@data.median_income) %>  </td>
+        <td> <%= number_to_currency(@data.try(:median_income)) %>  </td>
       </tr>
       <tr>
         <td> Median Age </td>
@@ -39,14 +39,14 @@
         <td> People: </td>
         <td>
           <ul class="table-text">
-          <% @data.desc_education.each do |info| %>
+          <% @data.desc_education.try(:each) do |info| %>
             <li> <%= info %> </li>
           <% end %>
           </ul>
         </td>
         <td>
           <ul class="table-text">
-          <% @data.desc_employment.each do |info| %>
+          <% @data.desc_employment.try(:each) do |info| %>
             <li> <%= info %> </li>
           <% end %>
           </ul>
